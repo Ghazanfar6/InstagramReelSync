@@ -24,3 +24,19 @@ MAX_INTERVAL = 3900  # 65 minutes
 
 # Maximum retries for operations
 MAX_RETRIES = 3
+
+# Wait time ranges (in seconds)
+MIN_WAIT = 2
+MAX_WAIT = 5
+
+# Chrome browser settings
+CHROME_OPTIONS = [
+    '--no-sandbox',
+    '--disable-dev-shm-usage',
+    '--window-size=1920,1080'
+]
+
+BROWSER_SETTINGS = {
+    'timeout': 45,
+    'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+}
