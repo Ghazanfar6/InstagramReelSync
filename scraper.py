@@ -2,7 +2,6 @@ import time
 import os
 import logging
 import random
-import requests
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
@@ -15,8 +14,7 @@ from config import (
     DOWNLOAD_DIR,
     MAX_RETRIES,
     MIN_WAIT,
-    MAX_WAIT,
-    TARGET_ACCOUNTS
+    MAX_WAIT
 )
 
 logger = logging.getLogger(__name__)
@@ -36,12 +34,9 @@ class InstagramScraper:
             options.add_argument('--disable-dev-shm-usage')
             options.add_argument('--disable-gpu')
             options.add_argument('--window-size=1920,1080')
-            options.add_argument('--disable-notifications')
-            options.add_argument('--disable-popup-blocking')
 
             self.driver = webdriver.Chrome(options=options)
-            self.wait = WebDriverWait(self.driver, 20)  # Increased timeout
-            self.driver.set_page_load_timeout(30)
+            self.wait = WebDriverWait(self.driver, 20)
             logger.info("Browser initialized successfully")
             return True
         except Exception as e:
@@ -59,7 +54,6 @@ class InstagramScraper:
             self.driver.get('https://www.instagram.com/accounts/login/')
             self.wait_random()
 
-            # Wait for login fields with increased timeout
             username_field = self.wait.until(
                 EC.presence_of_element_located((By.NAME, "username"))
             )
@@ -67,7 +61,6 @@ class InstagramScraper:
                 EC.presence_of_element_located((By.NAME, "password"))
             )
 
-            # Clear fields before sending keys
             username_field.clear()
             password_field.clear()
 
@@ -81,7 +74,6 @@ class InstagramScraper:
             self.wait.until(
                 EC.presence_of_element_located((By.CSS_SELECTOR, "main[role='main']"))
             )
-
             logger.info("Login successful")
             return True
 
@@ -89,26 +81,11 @@ class InstagramScraper:
             logger.error(f"Login failed: {str(e)}")
             return False
 
-    def download_reel(self, url, filename):
-        """Download video from direct URL"""
+    def scrape_reel(self):
+        """Scrape a reel from the main reels page"""
         try:
-            response = requests.get(url, stream=True)
-            if response.status_code == 200:
-                with open(filename, 'wb') as f:
-                    for chunk in response.iter_content(chunk_size=1024*8):
-                        if chunk:
-                            f.write(chunk)
-                return True
-            return False
-        except Exception as e:
-            logger.error(f"Failed to download video: {str(e)}")
-            return False
-
-    def scrape_reel_from_account(self, account):
-        """Scrape a reel from a specific account"""
-        try:
-            logger.info(f"Navigating to account: {account}")
-            self.driver.get(f'https://www.instagram.com/{account}/reels/')
+            logger.info("Navigating to reels page")
+            self.driver.get('https://www.instagram.com/reels/')
             self.wait_random()
 
             # Wait for and click first reel
@@ -126,11 +103,15 @@ class InstagramScraper:
 
             if video_url:
                 filename = os.path.join(DOWNLOAD_DIR, f"reel_{int(time.time())}.mp4")
-                if self.download_reel(video_url, filename):
-                    logger.info(f"Successfully downloaded: {filename}")
-                    return filename
+                response = self.driver.execute_cdp_cmd('Network.getResponseBody', {'requestId': video_url})
 
-            logger.error("Failed to find or download reel")
+                with open(filename, 'wb') as f:
+                    f.write(bytes(response['body']))
+
+                logger.info(f"Successfully downloaded: {filename}")
+                return filename
+
+            logger.error("Failed to find video URL")
             return None
 
         except Exception as e:
@@ -155,14 +136,12 @@ def scrape_with_retry():
             scraper = InstagramScraper()
 
             if not scraper.setup_browser():
-                logger.error("Failed to set up browser")
                 continue
 
             if scraper.login():
-                for account in TARGET_ACCOUNTS:
-                    result = scraper.scrape_reel_from_account(account)
-                    if result:
-                        return result
+                result = scraper.scrape_reel()
+                if result:
+                    return result
 
         except Exception as e:
             logger.error(f"Scrape attempt {attempt + 1} failed: {str(e)}")

@@ -30,20 +30,20 @@ class InstagramUploader:
         """Upload a reel using instagrapi"""
         try:
             logger.info(f"Uploading reel: {file_path}")
-
+            
             # Configure client settings for better stability
             self.client.request_timeout = 30
             self.client.private_request_timeout = 30
-
+            
             # Upload the reel
             self.client.clip_upload(
                 file_path,
                 caption=caption
             )
-
+            
             logger.info("Reel uploaded successfully")
             return True
-
+            
         except Exception as e:
             logger.error(f"Upload failed: {str(e)}")
             return False
@@ -58,31 +58,25 @@ class InstagramUploader:
 def upload_with_retry(file_path):
     """Upload with retry mechanism"""
     uploader = None
-
+    
     for attempt in range(MAX_RETRIES):
         try:
             logger.info(f"Upload attempt {attempt + 1}/{MAX_RETRIES}")
             uploader = InstagramUploader()
-
+            
             if uploader.login() and uploader.upload_reel(file_path):
                 logger.info("Upload completed successfully")
                 return True
-
+                
         except Exception as e:
             logger.error(f"Upload attempt {attempt + 1} failed: {str(e)}")
         finally:
             if uploader:
                 uploader.close()
-
+        
         if attempt < MAX_RETRIES - 1:
             logger.info("Waiting 60 seconds before retry...")
             time.sleep(60)
-
+    
     logger.error("All upload attempts failed")
     return False
-
-if __name__ == "__main__":
-    from utils import get_latest_download
-    latest_file = get_latest_download()
-    if latest_file:
-        upload_with_retry(latest_file)

@@ -4,8 +4,17 @@ from datetime import datetime
 import logging
 from scraper import scrape_with_retry
 from uploader import upload_with_retry
-from utils import cleanup_old_files, get_latest_download
 from config import MIN_INTERVAL, MAX_INTERVAL
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('instagram_bot.log'),
+        logging.StreamHandler()
+    ]
+)
 
 logger = logging.getLogger(__name__)
 
@@ -14,31 +23,26 @@ def run_bot():
     try:
         logger.info(f"Starting Instagram automation cycle at {datetime.now()}")
 
-        # Clean up old downloads
-        cleanup_old_files()
-
-        # Scrape a new reel
-        logger.info("Attempting to scrape a new reel...")
+        # Scrape a reel
         downloaded_file = scrape_with_retry()
         if not downloaded_file:
-            logger.error("Failed to scrape a new reel")
+            logger.error("Failed to download reel")
             return False
 
         # Upload the reel
-        logger.info("Attempting to upload the reel...")
         if upload_with_retry(downloaded_file):
             logger.info("Successfully completed the automation cycle")
             return True
-        else:
-            logger.error("Failed to upload reel")
-            return False
+
+        logger.error("Failed to upload reel")
+        return False
 
     except Exception as e:
         logger.error(f"Error in automation cycle: {str(e)}")
         return False
 
 def main():
-    """Main loop with random intervals"""
+    """Main loop with random intervals within 1 hour"""
     logger.info("Starting Instagram Reel Bot")
 
     while True:
@@ -48,7 +52,7 @@ def main():
             status = "Successfully" if success else "Failed to"
             logger.info(f"{status} complete automation cycle")
 
-            # Calculate next run time
+            # Calculate next run time (random time within the hour)
             delay = random.randint(MIN_INTERVAL, MAX_INTERVAL)
             next_run = datetime.fromtimestamp(time.time() + delay)
             logger.info(f"Next run scheduled for: {next_run}")
