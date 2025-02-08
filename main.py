@@ -4,7 +4,7 @@ import logging
 from datetime import datetime
 from typing import Optional
 
-from downloader import download_with_retry
+from scraper import scrape_with_retry as download_with_retry
 from uploader import upload_with_retry
 from config import (
     MIN_INTERVAL,
