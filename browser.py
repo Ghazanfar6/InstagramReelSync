@@ -16,56 +16,89 @@ class BrowserManager:
         self.driver = None
         self.wait = None
 
+    def find_binary(self, binary_name, possible_paths):
+        """Find binary in possible locations"""
+        for path in possible_paths:
+            if os.path.exists(path):
+                logging.info(f"Found {binary_name} at: {path}")
+                return path
+        return None
+
     def init_browser(self):
         """Initialize Chrome browser with undetected-chromedriver"""
         try:
+            logging.info("Setting up Chrome options...")
             options = uc.ChromeOptions()
 
-            # Add required Chrome arguments
+            # Basic Chrome arguments for Replit environment
             options.add_argument('--no-sandbox')
-            options.add_argument('--headless=new')  # Use new headless mode
             options.add_argument('--disable-dev-shm-usage')
-            options.add_argument('--disable-gpu')  # Disable GPU usage
-            options.add_argument('--disable-extensions')  # Disable extensions
-            options.add_argument('--window-size=1920,1080')  # Set window size
-            options.add_argument('--start-maximized')  # Start maximized
+            options.add_argument('--disable-gpu')
+            options.add_argument('--disable-software-rasterizer')
+            options.add_argument('--window-size=1920,1080')
+            options.add_argument('--headless=new')
             options.add_argument(f'user-agent={USER_AGENT}')
-            options.add_argument('--disable-infobars')
-            options.add_argument('--lang=en-US')
-            options.add_argument('--disable-blink-features=AutomationControlled')
 
-            # Add experimental options for preferences
-            prefs = CHROME_OPTIONS.copy()
-            prefs.update({
+            # Add experimental options
+            prefs = {
+                "download.default_directory": os.path.abspath("downloads"),
+                "download.prompt_for_download": False,
                 "credentials_enable_service": False,
-                "profile.password_manager_enabled": False,
-                "profile.default_content_settings.popups": 0
-            })
+                "profile.password_manager_enabled": False
+            }
             options.add_experimental_option("prefs", prefs)
 
-            # Set binary location if available
-            chrome_binary = os.environ.get('CHROME_BINARY_PATH')
-            if chrome_binary and os.path.exists(chrome_binary):
-                logging.info(f"Using Chrome binary at: {chrome_binary}")
+            # Search for Chrome binary in possible locations
+            chrome_paths = [
+                '/usr/bin/chromium',
+                '/usr/bin/chromium-browser',
+                '/usr/bin/google-chrome',
+                '/usr/bin/google-chrome-stable',
+                '/nix/store/chrome/bin/chromium'
+            ]
+            chrome_binary = self.find_binary('Chrome', chrome_paths)
+
+            if chrome_binary:
                 options.binary_location = chrome_binary
             else:
-                logging.warning("CHROME_BINARY_PATH not set or invalid, using default Chrome location")
+                logging.warning("Chrome binary not found, using system default")
 
-            logging.info("Initializing Chrome driver with configured options...")
-            self.driver = uc.Chrome(options=options)
+            # Search for ChromeDriver in possible locations
+            chromedriver_paths = [
+                '/usr/bin/chromedriver',
+                '/usr/local/bin/chromedriver',
+                '/nix/store/chromedriver/bin/chromedriver'
+            ]
+            chromedriver_path = self.find_binary('ChromeDriver', chromedriver_paths)
 
-            # Set page load timeout
+            # Let undetected_chromedriver handle driver management if not found
+            if not chromedriver_path:
+                logging.info("ChromeDriver not found, letting undetected_chromedriver handle it")
+                chromedriver_path = None
+
+            # Initialize Chrome with available configuration
+            logging.info("Initializing Chrome driver...")
+            self.driver = uc.Chrome(
+                options=options,
+                headless=True,
+                use_subprocess=True
+            )
+
+            # Configure timeouts
             self.driver.set_page_load_timeout(BROWSER_SETTINGS['PAGE_LOAD_TIMEOUT'])
             self.driver.implicitly_wait(BROWSER_SETTINGS['IMPLICIT_WAIT'])
-
-            # Initialize wait with longer timeout
             self.wait = WebDriverWait(self.driver, BROWSER_SETTINGS['EXPLICIT_WAIT'])
 
             logging.info("Chrome driver initialized successfully")
             return self.driver
 
         except Exception as e:
-            logging.error(f"Failed to initialize browser: {str(e)}")
+            logging.error(f"Browser initialization failed: {str(e)}")
+            if self.driver:
+                try:
+                    self.driver.quit()
+                except:
+                    pass
             raise
 
     def wait_random(self):
@@ -73,42 +106,24 @@ class BrowserManager:
         time.sleep(random.randint(MIN_WAIT, MAX_WAIT))
 
     def find_element_with_retry(self, by, value, retries=3, timeout=None):
-        """Find element with retry mechanism and dynamic timeout"""
-        if timeout is None:
+        """Find element with retry mechanism"""
+        if not timeout:
             timeout = BROWSER_SETTINGS['EXPLICIT_WAIT']
 
         for attempt in range(retries):
             try:
-                # Try to find element with explicit wait
                 element = WebDriverWait(self.driver, timeout).until(
                     EC.presence_of_element_located((by, value))
                 )
-
-                # Additional check for element interactability
-                WebDriverWait(self.driver, 5).until(
-                    EC.element_to_be_clickable((by, value))
-                )
-
-                # Scroll element into view
-                self.driver.execute_script("arguments[0].scrollIntoView(true);", element)
-
-                # Small delay before returning element
-                time.sleep(BROWSER_SETTINGS['RETRY_DELAY'])
                 return element
-
-            except TimeoutException:
-                if attempt == retries - 1:
-                    raise
-                logging.warning(f"Retry {attempt + 1} finding element {value}")
-                time.sleep(BROWSER_SETTINGS['RETRY_DELAY'])
             except Exception as e:
                 if attempt == retries - 1:
                     raise
-                logging.warning(f"Error on attempt {attempt + 1}: {str(e)}")
+                logging.warning(f"Retry {attempt + 1}/{retries} finding element {value}")
                 time.sleep(BROWSER_SETTINGS['RETRY_DELAY'])
 
     def close(self):
-        """Close browser and clean up"""
+        """Clean up resources"""
         if self.driver:
             try:
                 self.driver.quit()
