@@ -1,32 +1,27 @@
 import time
 import random
 from datetime import datetime
-from utils import logger, cleanup_old_files
-from scraper import scrape_with_retry
-from uploader import upload_with_retry
+from utils import logger, cleanup_old_files, get_latest_download
+from instagrapi_uploader import upload_with_retry
 from config import MIN_INTERVAL, MAX_INTERVAL
 
 def run_bot():
-    """Execute one complete cycle of scraping and uploading"""
+    """Execute one complete cycle of uploading"""
     try:
         logger.info(f"Starting Instagram automation cycle at {datetime.now()}")
 
         # Clean up old downloads first
         cleanup_old_files()
 
-        # Step 1: Download a new reel
-        logger.info("Attempting to scrape a new reel...")
-        downloaded_file = scrape_with_retry()
-
-        if not downloaded_file:
-            logger.error("Failed to download reel after all retries")
+        # Get the latest downloaded reel
+        latest_file = get_latest_download()
+        if not latest_file:
+            logger.error("No valid reel found in downloads directory")
             return False
 
-        logger.info(f"Successfully downloaded reel: {downloaded_file}")
-
-        # Step 2: Upload the downloaded reel
+        # Upload the reel using Instagrapi
         logger.info("Attempting to upload the reel...")
-        if upload_with_retry(downloaded_file):
+        if upload_with_retry(latest_file):
             logger.info("Successfully completed the automation cycle")
             return True
         else:
@@ -58,8 +53,7 @@ def main():
 
         except Exception as e:
             logger.error(f"Critical error in main loop: {e}")
-            # Wait for 5 minutes before retrying on critical error
-            time.sleep(300)
+            time.sleep(300)  # Wait for 5 minutes before retrying on critical error
 
 if __name__ == "__main__":
     main()

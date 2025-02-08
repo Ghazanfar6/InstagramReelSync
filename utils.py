@@ -3,10 +3,10 @@ import logging
 import time
 from config import DOWNLOAD_DIR
 
-# Configure logging
+# Configure logging with more detailed format
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
+    format='%(asctime)s - %(levelname)s - [%(filename)s:%(lineno)d] - %(message)s',
     handlers=[
         logging.FileHandler('instagram_bot.log'),
         logging.StreamHandler()
@@ -27,7 +27,12 @@ def verify_file(file_path):
             logger.error(f"File is empty: {file_path}")
             return False
 
-        logger.info(f"Verified file {file_path} (size: {file_size} bytes)")
+        # Check file extension
+        if not file_path.lower().endswith(('.mp4', '.mov')):
+            logger.error(f"Invalid file type: {file_path}")
+            return False
+
+        logger.info(f"Verified file {file_path} (size: {file_size:,} bytes)")
         return True
 
     except Exception as e:
@@ -47,7 +52,7 @@ def get_latest_download():
             return None
 
         # Get all valid video files
-        video_files = [f for f in files if f.endswith(('.mp4', '.mov', '.avi'))]
+        video_files = [f for f in files if f.lower().endswith(('.mp4', '.mov'))]
         if not video_files:
             logger.warning("No video files found in downloads directory")
             return None
@@ -86,12 +91,12 @@ def cleanup_old_files(max_age_hours=24):
                     os.remove(file_path)
                     total_removed += 1
                     total_size_freed += file_size
-                    logger.info(f"Removed old file: {filename} (size: {file_size} bytes)")
+                    logger.info(f"Removed old file: {filename} (size: {file_size:,} bytes)")
             except Exception as e:
                 logger.error(f"Error removing file {filename}: {str(e)}")
 
         if total_removed > 0:
-            logger.info(f"Cleanup completed: removed {total_removed} files, freed {total_size_freed} bytes")
+            logger.info(f"Cleanup completed: removed {total_removed} files, freed {total_size_freed:,} bytes")
         else:
             logger.info("No files needed cleanup")
 

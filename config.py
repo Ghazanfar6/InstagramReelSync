@@ -1,18 +1,14 @@
 import os
 
 # Instagram credentials
-USERNAME = os.environ.get("INSTAGRAM_USERNAME", "liftlearnrepeat")
-PASSWORD = os.environ.get("INSTAGRAM_PASSWORD", "Ghazanfar@19")
+USERNAME = os.environ.get("INSTAGRAM_USERNAME", "your_username")  # Replace with your username
+PASSWORD = os.environ.get("INSTAGRAM_PASSWORD", "your_password")  # Replace with your password
 
-# URLs
-LOGIN_URL = "https://www.instagram.com/accounts/login/"
-REELS_URL = "https://www.instagram.com/reels/"
-
-# Timing configurations (in seconds)
-MIN_WAIT = 5  # Minimum wait between actions
-MAX_WAIT = 10  # Maximum wait between actions
-MIN_INTERVAL = 3600  # Minimum interval between runs (1 hour)
-MAX_INTERVAL = 7200  # Maximum interval between runs (2 hours)
+# Timing configurations
+MIN_WAIT = 5
+MAX_WAIT = 10
+MIN_INTERVAL = 3600  # 1 hour
+MAX_INTERVAL = 7200  # 2 hours
 
 # Upload settings
 MAX_RETRIES = 3
@@ -25,30 +21,18 @@ DEFAULT_CAPTION = """#fitness #workout #motivation #gym
 DOWNLOAD_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "downloads")
 os.makedirs(DOWNLOAD_DIR, exist_ok=True)
 
-# Browser configurations
-CHROME_OPTIONS = {
-    "download.default_directory": DOWNLOAD_DIR,
-    "download.prompt_for_download": False,
-    "safebrowsing.enabled": True,
-    "profile.default_content_setting_values.notifications": 2,
-    "credentials_enable_service": False,
-    "profile.password_manager_enabled": False,
-    "profile.default_content_settings.popups": 0,
-    "disable-popup-blocking": True,
-    "start-maximized": True,
-    "disable-infobars": True
+# Instagrapi settings - Optimized for better success rate
+INSTAGRAPI_SETTINGS = {
+    'device_settings': {
+        'app_version': '269.0.0.18.75',  # Latest stable version
+        'android_version': 29,
+        'android_release': '10.0',
+        'device_model': 'SM-G973F',  # Samsung Galaxy S10
+        'manufacturer': 'Samsung',
+    },
+    'request_timeout': 30,  # Timeout for requests in seconds
+    'video_upload_timeout': 300,  # 5 minutes timeout for video uploads
+    'max_video_length': 90,  # Maximum video length in seconds
+    'sleep_between_requests': 2,  # Sleep time between API requests
+    'max_connection_attempts': 3  # Maximum number of connection retry attempts
 }
-
-# Additional browser settings
-BROWSER_SETTINGS = {
-    "PAGE_LOAD_TIMEOUT": 30,
-    "IMPLICIT_WAIT": 10,
-    "EXPLICIT_WAIT": 20,
-    "RETRY_DELAY": 2,
-    "VIDEO_PROCESS_WAIT": 15,
-    "UPLOAD_CONFIRMATION_WAIT": 20,
-    "PAGE_LOAD_WAIT": 8  # Additional wait after page load
-}
-
-# User agent string to mimic real browser
-USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"

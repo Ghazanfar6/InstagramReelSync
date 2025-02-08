@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from browser import BrowserManager
 from config import USERNAME, PASSWORD, LOGIN_URL, REELS_URL, DOWNLOAD_DIR, MAX_RETRIES
 from utils import logger
+import moviepy.editor as mp
 
 class ReelScraper:
     def __init__(self):
@@ -32,6 +33,29 @@ class ReelScraper:
 
         except Exception as e:
             logger.error(f"Login failed: {str(e)}")
+            return False
+
+    def verify_video(self, file_path):
+        """Verify if the downloaded file is a valid video"""
+        try:
+            if not os.path.exists(file_path):
+                return False
+
+            # Try to load the video
+            video = mp.VideoFileClip(file_path)
+            duration = video.duration
+            video.close()
+
+            # Check if video is too short or too long
+            if duration < 1 or duration > 90:
+                logger.error(f"Invalid video duration: {duration} seconds")
+                return False
+
+            logger.info(f"Video verified successfully: {duration} seconds")
+            return True
+
+        except Exception as e:
+            logger.error(f"Video verification failed: {str(e)}")
             return False
 
     def download_reel(self):
@@ -65,7 +89,7 @@ class ReelScraper:
                     canvas.width = video.videoWidth;
                     canvas.height = video.videoHeight;
                     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-                    return canvas.toDataURL('image/png');
+                    return canvas.toDataURL('video/mp4');
                 """)
 
                 video_binary = base64.b64decode(video_data.split(',')[1])
@@ -75,8 +99,13 @@ class ReelScraper:
                 with open(filename, "wb") as file:
                     file.write(video_binary)
 
-                logger.info(f"Successfully downloaded: {filename}")
-                return filename
+                # Verify the downloaded video
+                if self.verify_video(filename):
+                    logger.info(f"Successfully downloaded and verified: {filename}")
+                    return filename
+                else:
+                    logger.error("Downloaded file failed verification")
+                    return None
 
             logger.error("Could not extract video data")
             return None
