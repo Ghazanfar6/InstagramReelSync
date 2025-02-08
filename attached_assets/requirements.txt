@@ -1,4 +1,0 @@
-selenium
-undetected-chromedriver
-moviepy
-requests
