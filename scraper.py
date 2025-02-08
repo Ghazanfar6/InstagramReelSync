@@ -1,11 +1,62 @@
 import time
 import base64
 import os
+import logging
+import random
 from selenium.webdriver.common.by import By
-from browser import BrowserManager
-from config import USERNAME, PASSWORD, LOGIN_URL, REELS_URL, DOWNLOAD_DIR, MAX_RETRIES
-from utils import logger
+import undetected_chromedriver as uc
 import moviepy.editor as mp
+from config import (
+    INSTAGRAM_USERNAME,
+    INSTAGRAM_PASSWORD,
+    DOWNLOAD_DIR,
+    MAX_RETRIES,
+    MIN_WAIT,
+    MAX_WAIT,
+    TARGET_ACCOUNTS
+)
+
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+
+class BrowserManager:
+    def __init__(self):
+        self.driver = None
+
+    def init_browser(self):
+        """Initialize undetected-chromedriver"""
+        try:
+            options = uc.ChromeOptions()
+            options.add_argument('--no-sandbox')
+            options.add_argument('--headless=new')
+            options.add_argument('--disable-dev-shm-usage')
+            self.driver = uc.Chrome(options=options)
+            return self.driver
+        except Exception as e:
+            logging.error(f"Failed to initialize browser: {str(e)}")
+            return None
+
+    def wait_random(self):
+        """Wait for a random time between MIN_WAIT and MAX_WAIT seconds"""
+        time.sleep(random.uniform(MIN_WAIT, MAX_WAIT))
+
+    def find_element_with_retry(self, by, value, retries=3, timeout=10):
+        """Find element with retry mechanism"""
+        for _ in range(retries):
+            try:
+                return self.driver.find_element(by, value)
+            except Exception as e:
+                logging.warning(f"Failed to find element {value}: {str(e)}")
+                time.sleep(timeout / retries)
+        return None
+
+    def close(self):
+        """Close the browser"""
+        if self.driver:
+            try:
+                self.driver.quit()
+            except Exception as e:
+                logging.error(f"Failed to close browser: {str(e)}")
 
 class ReelScraper:
     def __init__(self):
@@ -15,24 +66,26 @@ class ReelScraper:
     def login(self):
         """Log into Instagram"""
         try:
-            logger.info("Initializing browser for scraping...")
+            logging.info("Initializing browser for scraping...")
             self.driver = self.browser.init_browser()
-            self.driver.get(LOGIN_URL)
+            self.driver.get('https://www.instagram.com/accounts/login/')
             self.browser.wait_random()
 
             username_field = self.browser.find_element_with_retry(By.NAME, "username")
             password_field = self.browser.find_element_with_retry(By.NAME, "password")
 
-            username_field.send_keys(USERNAME)
-            password_field.send_keys(PASSWORD)
-            password_field.submit()
+            if username_field and password_field:
+                username_field.send_keys(INSTAGRAM_USERNAME)
+                password_field.send_keys(INSTAGRAM_PASSWORD)
+                password_field.submit()
 
-            self.browser.wait_random()
-            logger.info("Login attempt completed")
-            return True
+                self.browser.wait_random()
+                logging.info("Login attempt completed")
+                return True
+            return False
 
         except Exception as e:
-            logger.error(f"Login failed: {str(e)}")
+            logging.error(f"Login failed: {str(e)}")
             return False
 
     def verify_video(self, file_path):
@@ -48,70 +101,72 @@ class ReelScraper:
 
             # Check if video is too short or too long
             if duration < 1 or duration > 90:
-                logger.error(f"Invalid video duration: {duration} seconds")
+                logging.error(f"Invalid video duration: {duration} seconds")
                 return False
 
-            logger.info(f"Video verified successfully: {duration} seconds")
+            logging.info(f"Video verified successfully: {duration} seconds")
             return True
 
         except Exception as e:
-            logger.error(f"Video verification failed: {str(e)}")
+            logging.error(f"Video verification failed: {str(e)}")
             return False
 
-    def download_reel(self):
-        """Download a reel from the feed"""
+    def download_reel_from_account(self, account):
+        """Download a reel from a specific account"""
         try:
-            logger.info("Navigating to reels page...")
-            self.driver.get(REELS_URL)
+            logging.info(f"Navigating to account: {account}")
+            self.driver.get(f'https://www.instagram.com/{account}/reels/')
             self.browser.wait_random()
 
             first_reel = self.browser.find_element_with_retry(
-                By.XPATH, "//div[@role='button']",
+                By.XPATH, "//div[contains(@class, '_aagv')]//img",
                 retries=3,
                 timeout=10
             )
-            first_reel.click()
-            self.browser.wait_random()
+            if first_reel:
+                first_reel.click()
+                self.browser.wait_random()
 
-            video_element = self.browser.find_element_with_retry(
-                By.TAG_NAME, "video",
-                retries=3,
-                timeout=10
-            )
-            video_url = video_element.get_attribute("src")
+                video_element = self.browser.find_element_with_retry(
+                    By.TAG_NAME, "video",
+                    retries=3,
+                    timeout=10
+                )
 
-            if "blob:" in video_url:
-                logger.info("Extracting video data from blob URL...")
-                video_data = self.driver.execute_script("""
-                    let video = document.querySelector('video');
-                    let canvas = document.createElement('canvas');
-                    let ctx = canvas.getContext('2d');
-                    canvas.width = video.videoWidth;
-                    canvas.height = video.videoHeight;
-                    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-                    return canvas.toDataURL('video/mp4');
-                """)
+                if video_element:
+                    video_url = video_element.get_attribute("src")
 
-                video_binary = base64.b64decode(video_data.split(',')[1])
-                os.makedirs(DOWNLOAD_DIR, exist_ok=True)
-                filename = os.path.join(DOWNLOAD_DIR, f"reel_{int(time.time())}.mp4")
+                    if video_url and "blob:" in video_url:
+                        logging.info("Extracting video data from blob URL...")
+                        video_data = self.driver.execute_script("""
+                            async function getVideoData() {
+                                let video = document.querySelector('video');
+                                let blob = await fetch(video.src).then(r => r.blob());
+                                return new Promise((resolve) => {
+                                    let reader = new FileReader();
+                                    reader.onloadend = () => resolve(reader.result);
+                                    reader.readAsDataURL(blob);
+                                });
+                            }
+                            return getVideoData();
+                        """)
 
-                with open(filename, "wb") as file:
-                    file.write(video_binary)
+                        if video_data:
+                            video_binary = base64.b64decode(video_data.split(',')[1])
+                            filename = os.path.join(DOWNLOAD_DIR, f"reel_{int(time.time())}.mp4")
 
-                # Verify the downloaded video
-                if self.verify_video(filename):
-                    logger.info(f"Successfully downloaded and verified: {filename}")
-                    return filename
-                else:
-                    logger.error("Downloaded file failed verification")
-                    return None
+                            with open(filename, "wb") as file:
+                                file.write(video_binary)
 
-            logger.error("Could not extract video data")
+                            if self.verify_video(filename):
+                                logging.info(f"Successfully downloaded and verified: {filename}")
+                                return filename
+
+            logging.error("Failed to download reel")
             return None
 
         except Exception as e:
-            logger.error(f"Failed to download reel: {str(e)}")
+            logging.error(f"Failed to download reel: {str(e)}")
             return None
 
     def close(self):
@@ -124,18 +179,19 @@ def scrape_with_retry():
 
     for attempt in range(MAX_RETRIES):
         try:
-            logger.info(f"Scrape attempt {attempt + 1}/{MAX_RETRIES}")
+            logging.info(f"Scrape attempt {attempt + 1}/{MAX_RETRIES}")
             if scraper.login():
-                result = scraper.download_reel()
-                if result:
-                    return result
+                for account in TARGET_ACCOUNTS:
+                    result = scraper.download_reel_from_account(account)
+                    if result:
+                        return result
         except Exception as e:
-            logger.error(f"Scrape attempt {attempt + 1} failed: {str(e)}")
+            logging.error(f"Scrape attempt {attempt + 1} failed: {str(e)}")
         finally:
             scraper.close()
 
         if attempt < MAX_RETRIES - 1:
-            logger.info("Waiting 60 seconds before retry...")
+            logging.info("Waiting 60 seconds before retry...")
             time.sleep(60)
 
     return None

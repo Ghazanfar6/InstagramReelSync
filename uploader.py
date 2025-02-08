@@ -1,120 +1,56 @@
+import os
 import time
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
-from browser import BrowserManager
-from config import USERNAME, PASSWORD, LOGIN_URL, DEFAULT_CAPTION, MAX_RETRIES, BROWSER_SETTINGS
-from utils import logger, verify_file
+import logging
+from instagrapi import Client
+from config import (
+    INSTAGRAM_USERNAME,
+    INSTAGRAM_PASSWORD,
+    INSTAGRAPI_SETTINGS,
+    DEFAULT_CAPTION,
+    MAX_RETRIES
+)
+from utils import verify_file
+
+logger = logging.getLogger(__name__)
 
 class InstagramUploader:
     def __init__(self):
-        self.browser = BrowserManager()
-        self.driver = None
+        self.client = Client()
+        self.client.set_device_settings(INSTAGRAPI_SETTINGS['device_settings'])
+        self.client.request_timeout = INSTAGRAPI_SETTINGS['request_timeout']
+        self.client.video_upload_timeout = INSTAGRAPI_SETTINGS['video_upload_timeout']
+        self.client.sleep_between_requests = INSTAGRAPI_SETTINGS['sleep_between_requests']
+        self.client.max_connection_attempts = INSTAGRAPI_SETTINGS['max_connection_attempts']
 
     def login(self):
-        """Login to Instagram"""
+        """Login to Instagram using instagrapi"""
         try:
-            logger.info("Initializing browser for upload...")
-            self.driver = self.browser.init_browser()
-            self.driver.get(LOGIN_URL)
-            self.browser.wait_random()
-
-            username_field = self.browser.find_element_with_retry(By.NAME, "username")
-            password_field = self.browser.find_element_with_retry(By.NAME, "password")
-
-            username_field.send_keys(USERNAME)
-            password_field.send_keys(PASSWORD)
-            password_field.submit()
-
-            self.browser.wait_random()
-
-            # Verify login success
-            try:
-                WebDriverWait(self.driver, 10).until(
-                    EC.presence_of_element_located((By.CSS_SELECTOR, "svg[aria-label='Home']"))
-                )
-                logger.info("Login successful")
-                return True
-            except Exception:
-                logger.error("Could not verify successful login")
-                return False
-
+            logger.info("Attempting to login to Instagram...")
+            self.client.login(INSTAGRAM_USERNAME, INSTAGRAM_PASSWORD)
+            logger.info("Login successful")
+            return True
         except Exception as e:
             logger.error(f"Login failed: {str(e)}")
             return False
 
     def upload_reel(self, file_path, caption=DEFAULT_CAPTION):
-        """Upload a reel with verification"""
+        """Upload a reel using instagrapi"""
         if not verify_file(file_path):
             logger.error("Invalid file path or empty file")
             return False
 
         try:
-            logger.info("Starting reel upload process...")
-
-            # Click Create button
-            create_button = self.browser.find_element_with_retry(
-                By.XPATH, "//div[text()='Create']"
+            logger.info(f"Uploading reel: {file_path}")
+            self.client.clip_upload(
+                file_path,
+                caption=caption
             )
-            create_button.click()
-            self.browser.wait_random()
-
-            # Click Post option
-            post_button = self.browser.find_element_with_retry(
-                By.XPATH, "//div[text()='Post']"
-            )
-            post_button.click()
-            self.browser.wait_random()
-
-            # Upload file
-            file_input = self.browser.find_element_with_retry(
-                By.CSS_SELECTOR, "input[type='file']"
-            )
-            file_input.send_keys(file_path)
-            time.sleep(BROWSER_SETTINGS['VIDEO_PROCESS_WAIT'])
-
-            # Click Next
-            next_button = self.browser.find_element_with_retry(
-                By.XPATH, "//div[text()='Next']"
-            )
-            next_button.click()
-            self.browser.wait_random()
-
-            # Add caption
-            caption_box = self.browser.find_element_with_retry(
-                By.XPATH, "//textarea[@aria-label='Write a caption...']"
-            )
-            caption_box.send_keys(caption)
-            self.browser.wait_random()
-
-            # Share
-            share_button = self.browser.find_element_with_retry(
-                By.XPATH, "//div[text()='Share']"
-            )
-            share_button.click()
-
-            # Wait for upload confirmation
-            try:
-                WebDriverWait(self.driver, BROWSER_SETTINGS['UPLOAD_CONFIRMATION_WAIT']).until(
-                    lambda x: any(
-                        msg in x.page_source.lower() 
-                        for msg in ['reel was shared', 'post has been shared', 'post shared']
-                    )
-                )
-                logger.info("Reel uploaded successfully")
-                return True
-            except Exception:
-                logger.error("Could not confirm upload success")
-                return False
+            logger.info("Reel uploaded successfully")
+            return True
 
         except Exception as e:
             logger.error(f"Upload failed: {str(e)}")
             return False
-
-    def close(self):
-        """Clean up resources"""
-        self.browser.close()
 
 def upload_with_retry(file_path):
     """Upload with retry mechanism"""
@@ -128,8 +64,6 @@ def upload_with_retry(file_path):
                 return True
         except Exception as e:
             logger.error(f"Upload attempt {attempt + 1} failed: {str(e)}")
-        finally:
-            uploader.close()
 
         if attempt < MAX_RETRIES - 1:
             logger.info("Waiting 60 seconds before retry...")

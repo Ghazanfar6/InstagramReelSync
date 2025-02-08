@@ -1,27 +1,42 @@
 import time
 import random
 from datetime import datetime
-from utils import logger, cleanup_old_files, get_latest_download
-from instagrapi_uploader import upload_with_retry
+import logging
+from scraper import scrape_with_retry
+from uploader import upload_with_retry
+from utils import cleanup_old_files, get_latest_download
 from config import MIN_INTERVAL, MAX_INTERVAL
 
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - [%(filename)s:%(lineno)d] - %(message)s',
+    handlers=[
+        logging.FileHandler('instagram_bot.log'),
+        logging.StreamHandler()
+    ]
+)
+
+logger = logging.getLogger(__name__)
+
 def run_bot():
-    """Execute one complete cycle of uploading"""
+    """Execute one complete cycle of scraping and uploading"""
     try:
         logger.info(f"Starting Instagram automation cycle at {datetime.now()}")
 
         # Clean up old downloads first
         cleanup_old_files()
 
-        # Get the latest downloaded reel
-        latest_file = get_latest_download()
-        if not latest_file:
-            logger.error("No valid reel found in downloads directory")
+        # Scrape a new reel
+        logger.info("Attempting to scrape a new reel...")
+        downloaded_file = scrape_with_retry()
+        if not downloaded_file:
+            logger.error("Failed to scrape a new reel")
             return False
 
-        # Upload the reel using Instagrapi
+        # Upload the reel
         logger.info("Attempting to upload the reel...")
-        if upload_with_retry(latest_file):
+        if upload_with_retry(downloaded_file):
             logger.info("Successfully completed the automation cycle")
             return True
         else:
