@@ -3,7 +3,7 @@ import logging
 import time
 from config import DOWNLOAD_DIR
 
-# Configure logging with more detailed format
+# Configure logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - [%(filename)s:%(lineno)d] - %(message)s',
@@ -27,7 +27,6 @@ def verify_file(file_path):
             logger.error(f"File is empty: {file_path}")
             return False
 
-        # Check file extension
         if not file_path.lower().endswith(('.mp4', '.mov')):
             logger.error(f"Invalid file type: {file_path}")
             return False
@@ -40,7 +39,7 @@ def verify_file(file_path):
         return False
 
 def get_latest_download():
-    """Get the most recent downloaded file from downloads directory"""
+    """Get the most recent downloaded file"""
     try:
         if not os.path.exists(DOWNLOAD_DIR):
             logger.error(f"Download directory {DOWNLOAD_DIR} does not exist")
@@ -51,7 +50,6 @@ def get_latest_download():
             logger.warning("No files found in downloads directory")
             return None
 
-        # Get all valid video files
         video_files = [f for f in files if f.lower().endswith(('.mp4', '.mov'))]
         if not video_files:
             logger.warning("No video files found in downloads directory")
@@ -76,7 +74,7 @@ def cleanup_old_files(max_age_hours=24):
     """Clean up old downloaded files"""
     try:
         if not os.path.exists(DOWNLOAD_DIR):
-            logger.warning(f"Download directory {DOWNLOAD_DIR} does not exist, skipping cleanup")
+            logger.warning(f"Download directory {DOWNLOAD_DIR} does not exist")
             return
 
         current_time = time.time()
@@ -91,12 +89,12 @@ def cleanup_old_files(max_age_hours=24):
                     os.remove(file_path)
                     total_removed += 1
                     total_size_freed += file_size
-                    logger.info(f"Removed old file: {filename} (size: {file_size:,} bytes)")
+                    logger.info(f"Removed old file: {filename}")
             except Exception as e:
                 logger.error(f"Error removing file {filename}: {str(e)}")
 
         if total_removed > 0:
-            logger.info(f"Cleanup completed: removed {total_removed} files, freed {total_size_freed:,} bytes")
+            logger.info(f"Cleanup completed: removed {total_removed} files")
         else:
             logger.info("No files needed cleanup")
 

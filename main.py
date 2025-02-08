@@ -7,16 +7,6 @@ from uploader import upload_with_retry
 from utils import cleanup_old_files, get_latest_download
 from config import MIN_INTERVAL, MAX_INTERVAL
 
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - [%(filename)s:%(lineno)d] - %(message)s',
-    handlers=[
-        logging.FileHandler('instagram_bot.log'),
-        logging.StreamHandler()
-    ]
-)
-
 logger = logging.getLogger(__name__)
 
 def run_bot():
@@ -24,7 +14,7 @@ def run_bot():
     try:
         logger.info(f"Starting Instagram automation cycle at {datetime.now()}")
 
-        # Clean up old downloads first
+        # Clean up old downloads
         cleanup_old_files()
 
         # Scrape a new reel
@@ -40,11 +30,11 @@ def run_bot():
             logger.info("Successfully completed the automation cycle")
             return True
         else:
-            logger.error("Failed to upload reel after all retries")
+            logger.error("Failed to upload reel")
             return False
 
     except Exception as e:
-        logger.error(f"Error in automation cycle: {e}")
+        logger.error(f"Error in automation cycle: {str(e)}")
         return False
 
 def main():
@@ -66,6 +56,9 @@ def main():
             # Sleep until next run
             time.sleep(delay)
 
+        except KeyboardInterrupt:
+            logger.info("Bot stopped by user")
+            break
         except Exception as e:
             logger.error(f"Critical error in main loop: {e}")
             time.sleep(300)  # Wait for 5 minutes before retrying on critical error
