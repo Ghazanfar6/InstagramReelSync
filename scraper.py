@@ -192,8 +192,12 @@ class InstagramScraper:
             except Exception as e:
                 logger.error(f"Error closing browser: {str(e)}")
 
-def scrape_with_retry():
-    """Scrape with retry mechanism"""
+def scrape_with_retry(username: str = None, max_count: int = 1):
+    """Scrape with retry mechanism
+    Args:
+        username: Optional username to scrape reels from
+        max_count: Maximum number of reels to scrape
+    """
     for attempt in range(MAX_RETRIES):
         try:
             logger.info(f"Scrape attempt {attempt + 1}/{MAX_RETRIES}")
