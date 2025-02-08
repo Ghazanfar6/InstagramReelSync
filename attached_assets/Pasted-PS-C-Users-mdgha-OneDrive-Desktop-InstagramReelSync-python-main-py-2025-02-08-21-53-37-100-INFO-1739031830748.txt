@@ -1,0 +1,66 @@
+PS C:\Users\mdgha\OneDrive\Desktop\InstagramReelSync> python main.py
+2025-02-08 21:53:37,100 - INFO - Starting Instagram Reel Bot
+2025-02-08 21:53:37,100 - INFO - Starting Instagram automation cycle at 2025-02-08 21:53:37.100978
+2025-02-08 21:53:37,100 - INFO - No files needed cleanup
+2025-02-08 21:53:37,100 - INFO - Attempting to scrape a new reel...
+2025-02-08 21:53:37,100 - INFO - Scrape attempt 1/3
+2025-02-08 21:53:37,100 - WARNING - CHROME_BINARY_PATH not set or invalid, using default Chrome location
+2025-02-08 21:53:37,100 - INFO - Initializing Chrome driver with configured options...
+2025-02-08 21:53:38,375 - INFO - patching driver executable C:\Users\mdgha\appdata\roaming\undetected_chromedriver\undetected_chromedriver.exe
+2025-02-08 21:53:39,437 - ERROR - Failed to initialize browser: Message: invalid argument: cannot parse capability: goog:chromeOptions
+from invalid argument: unrecognized chrome option: excludeSwitches
+Stacktrace:
+        GetHandleVerifier [0x00EC0A33+25139]
+        (No symbol) [0x00E51134]
+        (No symbol) [0x00D30523]
+        (No symbol) [0x00D5705E]
+        (No symbol) [0x00D58980]
+        (No symbol) [0x00D53A1B]
+        (No symbol) [0x00DA7792]
+        (No symbol) [0x00DA719E]
+        (No symbol) [0x00DA8976]
+        (No symbol) [0x00DA877A]
+        (No symbol) [0x00D9CD66]
+        (No symbol) [0x00D6BD99]
+        (No symbol) [0x00D6D0D4]
+        GetHandleVerifier [0x011C3A23+3183139]
+        GetHandleVerifier [0x011DFE8A+3298954]
+        GetHandleVerifier [0x011DA462+3275874]
+        GetHandleVerifier [0x00F57770+642928]
+        (No symbol) [0x00E5A01D]
+        (No symbol) [0x00E56E48]
+        (No symbol) [0x00E56FE7]
+        (No symbol) [0x00E49CE0]
+        BaseThreadInitThunk [0x76957BA9+25]
+        RtlInitializeExceptionChain [0x7713C0CB+107]
+        RtlClearBits [0x7713C04F+191]
+
+2025-02-08 21:53:39,437 - ERROR - Login failed: Message: invalid argument: cannot parse capability: goog:chromeOptions
+from invalid argument: unrecognized chrome option: excludeSwitches
+Stacktrace:
+        GetHandleVerifier [0x00EC0A33+25139]
+        (No symbol) [0x00E51134]
+        (No symbol) [0x00D30523]
+        (No symbol) [0x00D5705E]
+        (No symbol) [0x00D58980]
+        (No symbol) [0x00D53A1B]
+        (No symbol) [0x00DA7792]
+        (No symbol) [0x00DA719E]
+        (No symbol) [0x00DA8976]
+        (No symbol) [0x00DA877A]
+        (No symbol) [0x00D9CD66]
+        (No symbol) [0x00D6BD99]
+        (No symbol) [0x00D6D0D4]
+        GetHandleVerifier [0x011C3A23+3183139]
+        GetHandleVerifier [0x011DFE8A+3298954]
+        GetHandleVerifier [0x011DA462+3275874]
+        GetHandleVerifier [0x00F57770+642928]
+        (No symbol) [0x00E5A01D]
+        (No symbol) [0x00E56E48]
+        (No symbol) [0x00E56FE7]
+        (No symbol) [0x00E49CE0]
+        BaseThreadInitThunk [0x76957BA9+25]
+        RtlInitializeExceptionChain [0x7713C0CB+107]
+        RtlClearBits [0x7713C04F+191]
+
+2025-02-08 21:53:39,437 - INFO - Waiting 60 seconds before retry...
