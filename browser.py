@@ -1,7 +1,6 @@
 import undetected_chromedriver as uc
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException
 import time
 import random
 import logging
@@ -16,67 +15,25 @@ class BrowserManager:
         self.driver = None
         self.wait = None
 
-    def find_binary(self, binary_name, possible_paths):
-        """Find binary in possible locations"""
-        for path in possible_paths:
-            if os.path.exists(path):
-                logging.info(f"Found {binary_name} at: {path}")
-                return path
-        return None
-
     def init_browser(self):
         """Initialize Chrome browser with undetected-chromedriver"""
         try:
             logging.info("Setting up Chrome options...")
             options = uc.ChromeOptions()
 
-            # Basic Chrome arguments for Replit environment
+            # Basic Chrome arguments
             options.add_argument('--no-sandbox')
             options.add_argument('--disable-dev-shm-usage')
             options.add_argument('--disable-gpu')
-            options.add_argument('--disable-software-rasterizer')
             options.add_argument('--window-size=1920,1080')
             options.add_argument('--headless=new')
             options.add_argument(f'user-agent={USER_AGENT}')
 
             # Add experimental options
-            prefs = {
-                "download.default_directory": os.path.abspath("downloads"),
-                "download.prompt_for_download": False,
-                "credentials_enable_service": False,
-                "profile.password_manager_enabled": False
-            }
+            prefs = CHROME_OPTIONS.copy()
             options.add_experimental_option("prefs", prefs)
 
-            # Search for Chrome binary in possible locations
-            chrome_paths = [
-                '/usr/bin/chromium',
-                '/usr/bin/chromium-browser',
-                '/usr/bin/google-chrome',
-                '/usr/bin/google-chrome-stable',
-                '/nix/store/chrome/bin/chromium'
-            ]
-            chrome_binary = self.find_binary('Chrome', chrome_paths)
-
-            if chrome_binary:
-                options.binary_location = chrome_binary
-            else:
-                logging.warning("Chrome binary not found, using system default")
-
-            # Search for ChromeDriver in possible locations
-            chromedriver_paths = [
-                '/usr/bin/chromedriver',
-                '/usr/local/bin/chromedriver',
-                '/nix/store/chromedriver/bin/chromedriver'
-            ]
-            chromedriver_path = self.find_binary('ChromeDriver', chromedriver_paths)
-
-            # Let undetected_chromedriver handle driver management if not found
-            if not chromedriver_path:
-                logging.info("ChromeDriver not found, letting undetected_chromedriver handle it")
-                chromedriver_path = None
-
-            # Initialize Chrome with available configuration
+            # Initialize Chrome with simplified configuration
             logging.info("Initializing Chrome driver...")
             self.driver = uc.Chrome(
                 options=options,
