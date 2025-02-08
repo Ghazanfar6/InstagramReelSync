@@ -1,10 +1,15 @@
 import time
 import random
-from datetime import datetime
 import logging
-from scraper import scrape_with_retry
+from datetime import datetime
+from typing import Optional
+
+from downloader import download_with_retry
 from uploader import upload_with_retry
-from config import MIN_INTERVAL, MAX_INTERVAL
+from config import (
+    MIN_INTERVAL,
+    MAX_INTERVAL
+)
 
 # Configure logging
 logging.basicConfig(
@@ -18,41 +23,64 @@ logging.basicConfig(
 
 logger = logging.getLogger(__name__)
 
-def run_bot():
-    """Execute one complete cycle of scraping and uploading"""
+def process_single_reel(shortcode: str) -> bool:
+    """Process a single reel: download and repost"""
     try:
-        logger.info(f"Starting Instagram automation cycle at {datetime.now()}")
-
-        # Scrape a reel
-        downloaded_file = scrape_with_retry()
-        if not downloaded_file:
+        # Download the reel
+        downloaded_files = download_with_retry(shortcode=shortcode)
+        if not downloaded_files:
             logger.error("Failed to download reel")
             return False
 
-        # Upload the reel
-        if upload_with_retry(downloaded_file):
-            logger.info("Successfully completed the automation cycle")
-            return True
-
-        logger.error("Failed to upload reel")
-        return False
+        # Upload the first downloaded file
+        return upload_with_retry(downloaded_files[0])
 
     except Exception as e:
-        logger.error(f"Error in automation cycle: {str(e)}")
+        logger.error(f"Error processing reel: {str(e)}")
         return False
 
-def main():
-    """Main loop with random intervals within 1 hour"""
+def process_user_reels(username: str, max_count: int = 5) -> bool:
+    """Process multiple reels from a user"""
+    try:
+        # Download reels
+        downloaded_files = download_with_retry(username=username, max_count=max_count)
+        if not downloaded_files:
+            logger.error(f"Failed to download reels from {username}")
+            return False
+
+        # Upload each downloaded file
+        success = False
+        for file_path in downloaded_files:
+            if upload_with_retry(file_path):
+                success = True
+                break
+
+        return success
+
+    except Exception as e:
+        logger.error(f"Error processing user reels: {str(e)}")
+        return False
+
+def run_bot(target_username: Optional[str] = None):
+    """Main bot execution function"""
     logger.info("Starting Instagram Reel Bot")
 
     while True:
         try:
-            # Run the automation cycle
-            success = run_bot()
+            logger.info(f"Starting automation cycle at {datetime.now()}")
+
+            if target_username:
+                success = process_user_reels(target_username, max_count=1)
+            else:
+                # You can add logic here to determine which reel to download
+                # For now, we'll just log that we need a target
+                logger.error("No target username specified")
+                break
+
             status = "Successfully" if success else "Failed to"
             logger.info(f"{status} complete automation cycle")
 
-            # Calculate next run time (random time within the hour)
+            # Calculate next run time (random interval within the hour)
             delay = random.randint(MIN_INTERVAL, MAX_INTERVAL)
             next_run = datetime.fromtimestamp(time.time() + delay)
             logger.info(f"Next run scheduled for: {next_run}")
@@ -64,8 +92,10 @@ def main():
             logger.info("Bot stopped by user")
             break
         except Exception as e:
-            logger.error(f"Critical error in main loop: {e}")
-            time.sleep(300)  # Wait for 5 minutes before retrying on critical error
+            logger.error(f"Critical error in main loop: {str(e)}")
+            time.sleep(300)  # Wait 5 minutes before retrying
 
 if __name__ == "__main__":
-    main()
+    # Specify the target username whose reels you want to download and repost
+    target_username = "example_user"  # Replace with actual username
+    run_bot(target_username)

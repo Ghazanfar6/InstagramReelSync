@@ -1,5 +1,6 @@
 import time
 import logging
+from typing import Optional
 from instagrapi import Client
 from config import (
     INSTAGRAM_USERNAME,
@@ -8,15 +9,26 @@ from config import (
     MAX_RETRIES
 )
 
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('instagram_bot.log'),
+        logging.StreamHandler()
+    ]
+)
+
 logger = logging.getLogger(__name__)
 
-class InstagramUploader:
+class ReelUploader:
     def __init__(self):
+        """Initialize the Instagram API client"""
         self.client = Client()
-        self.client.delay_range = [3, 5]
+        self.client.delay_range = [3, 6]  # Random delay between actions
 
-    def login(self):
-        """Login to Instagram using instagrapi"""
+    def login(self) -> bool:
+        """Login to Instagram"""
         try:
             logger.info("Attempting to login to Instagram...")
             self.client.login(INSTAGRAM_USERNAME, INSTAGRAM_PASSWORD)
@@ -26,24 +38,27 @@ class InstagramUploader:
             logger.error(f"Login failed: {str(e)}")
             return False
 
-    def upload_reel(self, file_path, caption=DEFAULT_CAPTION):
-        """Upload a reel using instagrapi"""
+    def upload_reel(self, video_path: str, caption: Optional[str] = None) -> bool:
+        """Upload a reel to Instagram"""
         try:
-            logger.info(f"Uploading reel: {file_path}")
-            
+            if not caption:
+                caption = DEFAULT_CAPTION
+
+            logger.info(f"Uploading reel: {video_path}")
+
             # Configure client settings for better stability
             self.client.request_timeout = 30
-            self.client.private_request_timeout = 30
-            
+            self.client.video_upload_timeout = 300  # 5 minutes for video upload
+
             # Upload the reel
             self.client.clip_upload(
-                file_path,
+                video_path,
                 caption=caption
             )
-            
+
             logger.info("Reel uploaded successfully")
             return True
-            
+
         except Exception as e:
             logger.error(f"Upload failed: {str(e)}")
             return False
@@ -55,28 +70,33 @@ class InstagramUploader:
         except Exception as e:
             logger.error(f"Error during logout: {str(e)}")
 
-def upload_with_retry(file_path):
+def upload_with_retry(video_path: str, caption: Optional[str] = None) -> bool:
     """Upload with retry mechanism"""
     uploader = None
-    
+
     for attempt in range(MAX_RETRIES):
         try:
             logger.info(f"Upload attempt {attempt + 1}/{MAX_RETRIES}")
-            uploader = InstagramUploader()
-            
-            if uploader.login() and uploader.upload_reel(file_path):
+            uploader = ReelUploader()
+
+            if uploader.login() and uploader.upload_reel(video_path, caption):
                 logger.info("Upload completed successfully")
                 return True
-                
+
         except Exception as e:
             logger.error(f"Upload attempt {attempt + 1} failed: {str(e)}")
         finally:
             if uploader:
                 uploader.close()
-        
+
         if attempt < MAX_RETRIES - 1:
             logger.info("Waiting 60 seconds before retry...")
             time.sleep(60)
-    
+
     logger.error("All upload attempts failed")
     return False
+
+if __name__ == "__main__":
+    # Example usage:
+    # upload_with_retry("path/to/video.mp4", "Optional custom caption")
+    pass
