@@ -79,6 +79,53 @@ class BrowserManager:
                 logging.warning(f"Retry {attempt + 1}/{retries} finding element {value}")
                 time.sleep(BROWSER_SETTINGS['RETRY_DELAY'])
 
+    def upload_reel(self, video_path):
+        """Upload reel using browser automation"""
+        try:
+            # Login to Instagram
+            self.driver.get("https://www.instagram.com/login")
+            self.wait_random()
+            
+            # Find and fill login fields
+            username_input = self.find_element_with_retry(By.NAME, "username")
+            username_input.send_keys(os.environ.get("INSTAGRAM_USERNAME"))
+            
+            password_input = self.find_element_with_retry(By.NAME, "password")
+            password_input.send_keys(os.environ.get("INSTAGRAM_PASSWORD"))
+            
+            # Click login button
+            login_button = self.find_element_with_retry(By.XPATH, "//button[@type='submit']")
+            login_button.click()
+            self.wait_random()
+            
+            # Navigate to create reel page
+            self.driver.get("https://www.instagram.com/create/reels")
+            self.wait_random()
+            
+            # Upload video file
+            file_input = self.find_element_with_retry(By.CSS_SELECTOR, "input[type='file']")
+            file_input.send_keys(os.path.abspath(video_path))
+            
+            # Wait for upload to complete
+            self.wait_random()
+            
+            # Click Next
+            next_button = self.find_element_with_retry(By.XPATH, "//button[text()='Next']")
+            next_button.click()
+            self.wait_random()
+            
+            # Click Share
+            share_button = self.find_element_with_retry(By.XPATH, "//button[text()='Share']")
+            share_button.click()
+            
+            # Wait for confirmation
+            self.wait_random()
+            return True
+            
+        except Exception as e:
+            logging.error(f"Browser upload failed: {str(e)}")
+            return False
+
     def close(self):
         """Clean up resources"""
         if self.driver:

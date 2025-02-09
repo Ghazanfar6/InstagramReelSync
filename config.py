@@ -25,18 +25,20 @@ MAX_INTERVAL = 3900  # 65 minutes
 # Maximum retries for operations
 MAX_RETRIES = 3
 
-# Wait time ranges (in seconds)
+# Browser settings
 MIN_WAIT = 2
 MAX_WAIT = 5
+USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
-# Chrome browser settings
-CHROME_OPTIONS = [
-    '--no-sandbox',
-    '--disable-dev-shm-usage',
-    '--window-size=1920,1080'
-]
+CHROME_OPTIONS = {
+    "profile.default_content_setting_values.notifications": 2,
+    "profile.default_content_setting_values.media_stream_mic": 2,
+    "profile.default_content_setting_values.media_stream_camera": 2,
+}
 
 BROWSER_SETTINGS = {
-    'timeout': 45,
-    'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+    'PAGE_LOAD_TIMEOUT': 30,
+    'IMPLICIT_WAIT': 10,
+    'EXPLICIT_WAIT': 20,
+    'RETRY_DELAY': 5
 }

@@ -42,17 +42,13 @@ class InstagramScraper:
             options.add_argument('--window-size=1920,1080')
             options.add_argument('--disable-blink-features=AutomationControlled')
 
-            # Add experimental options
-            options.add_experimental_option("excludeSwitches", ["enable-automation"])
-            options.add_experimental_option('useAutomationExtension', False)
-
-            # Initialize Chrome
+            # Initialize Chrome with simplified options
             logger.info("Initializing Chrome...")
             self.driver = uc.Chrome(
                 options=options,
                 driver_executable_path=None,
                 browser_executable_path=None,
-                version_main=121
+                use_subprocess=True
             )
 
             # Set up WebDriverWait with increased timeout
@@ -110,7 +106,7 @@ class InstagramScraper:
             self.driver.get("https://www.instagram.com/reels/")
             time.sleep(random.randint(MIN_WAIT, MAX_WAIT))
 
-            logger.info("🔍 Searching for a reel...")
+            logger.info("Searching for a reel...")
 
             try:
                 # Click on the first reel in the feed
@@ -122,7 +118,7 @@ class InstagramScraper:
 
                 # Wait for URL to change
                 new_url = self.driver.current_url
-                logger.info(f"🔗 Reel URL: {new_url}")
+                logger.info(f"Reel URL: {new_url}")
 
                 # Extract video element
                 video_element = self.wait.until(
@@ -131,31 +127,28 @@ class InstagramScraper:
                 video_url = video_element.get_attribute("src")
 
                 if "blob:" in video_url:
-                    logger.info("⚠ Blob URL detected, extracting video data...")
+                    logger.info("Blob URL detected, downloading video data...")
 
-                    # Extract the actual video data from the blob URL
+                    # Download the video data from the blob URL
                     video_data = self.driver.execute_script("""
                         let video = document.querySelector('video');
-                        let canvas = document.createElement('canvas');
-                        let ctx = canvas.getContext('2d');
-                        canvas.width = video.videoWidth;
-                        canvas.height = video.videoHeight;
-                        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-                        return canvas.toDataURL('image/png');
+                        return video.src;
                     """)
 
-                    # Convert Base64 to binary
-                    video_binary = base64.b64decode(video_data.split(',')[1])
+                    response = requests.get(video_data, stream=True)
+                    response.raise_for_status()
 
                     filename = os.path.join(DOWNLOAD_DIR, f"reel_{int(time.time())}.mp4")
                     with open(filename, "wb") as file:
-                        file.write(video_binary)
+                        for chunk in response.iter_content(chunk_size=8192):
+                            if chunk:
+                                file.write(chunk)
 
-                    logger.info(f"✅ Successfully downloaded: {filename}")
+                    logger.info(f"Successfully downloaded: {filename}")
                     return filename
 
                 else:
-                    logger.info("📥 Downloading video from direct URL...")
+                    logger.info("Downloading video from direct URL...")
                     filename = os.path.join(DOWNLOAD_DIR, f"reel_{int(time.time())}.mp4")
                     headers = {
                         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
@@ -173,7 +166,7 @@ class InstagramScraper:
                             if chunk:
                                 f.write(chunk)
 
-                    logger.info(f"✅ Successfully downloaded: {filename}")
+                    logger.info(f"Successfully downloaded: {filename}")
                     return filename
 
             except Exception as e:
