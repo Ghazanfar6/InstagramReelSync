@@ -1,75 +1,46 @@
-import time
-import os
 import logging
-import random
-import undetected_chromedriver as uc
+import os
+import time
+from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import requests
-import base64
-
-from config import (
-    INSTAGRAM_USERNAME,
-    INSTAGRAM_PASSWORD,
-    DOWNLOAD_DIR,
-    MAX_RETRIES,
-    MIN_WAIT,
-    MAX_WAIT
-)
+from config import INSTAGRAM_USERNAME, INSTAGRAM_PASSWORD, USER_AGENT, DOWNLOAD_DIR
+import instaloader
 
 logger = logging.getLogger(__name__)
 
-class InstagramScraper:
+class InstagramBot:
     def __init__(self):
         self.driver = None
         self.wait = None
-        if not self.setup_browser():
-            raise Exception("Failed to initialize browser")
+        self.loader = instaloader.Instaloader(download_videos=True, download_comments=False, save_metadata=False, dirname_pattern=DOWNLOAD_DIR)
 
     def setup_browser(self):
-        """Initialize undetected Chrome browser"""
         try:
             logger.info("Setting up Chrome browser...")
-
-            # Create downloads directory
-            os.makedirs(DOWNLOAD_DIR, exist_ok=True)
-
-            # Basic Chrome options
-            options = uc.ChromeOptions()
+            options = webdriver.ChromeOptions()
             options.add_argument('--no-sandbox')
             options.add_argument('--disable-dev-shm-usage')
             options.add_argument('--window-size=1920,1080')
             options.add_argument('--disable-blink-features=AutomationControlled')
-
-            # Initialize Chrome with simplified options
-            logger.info("Initializing Chrome...")
-            self.driver = uc.Chrome(
-                options=options,
-                driver_executable_path=None,
-                browser_executable_path=None,
-                use_subprocess=True
-            )
-
-            # Set up WebDriverWait with increased timeout
-            self.wait = WebDriverWait(self.driver, 45)
+            options.add_argument('--disable-notifications')
+            options.add_argument('--start-maximized')
+            options.add_argument(f'user-agent={USER_AGENT}')
+            self.driver = webdriver.Chrome(executable_path='C:/Users/mdgha/OneDrive/Desktop/chromedriver.exe', options=options)  # Update the path as needed
+            self.wait = WebDriverWait(self.driver, 30)
             logger.info("Browser setup completed successfully")
             return True
-
         except Exception as e:
             logger.error(f"Browser setup failed: {str(e)}")
-            if self.driver:
-                self.driver.quit()
             return False
 
     def login(self):
-        """Login to Instagram"""
         try:
-            logger.info("Attempting to login to Instagram...")
+            logger.info("Attempting to login...")
             self.driver.get("https://www.instagram.com/accounts/login/")
-            time.sleep(random.randint(MIN_WAIT, MAX_WAIT))
+            time.sleep(3)
 
-            # Wait for and fill login fields
             username_field = self.wait.until(
                 EC.presence_of_element_located((By.NAME, "username"))
             )
@@ -77,141 +48,64 @@ class InstagramScraper:
                 EC.presence_of_element_located((By.NAME, "password"))
             )
 
-            # Type credentials with random delays
-            for char in INSTAGRAM_USERNAME:
-                username_field.send_keys(char)
-                time.sleep(random.uniform(0.1, 0.3))
+            username_field.send_keys(INSTAGRAM_USERNAME)
+            time.sleep(1)
+            password_field.send_keys(INSTAGRAM_PASSWORD)
+            time.sleep(1)
 
-            for char in INSTAGRAM_PASSWORD:
-                password_field.send_keys(char)
-                time.sleep(random.uniform(0.1, 0.3))
+            login_button = self.driver.find_element(By.CSS_SELECTOR, "button[type='submit']")
+            login_button.click()
 
-            password_field.submit()
-
-            # Wait for successful login
             self.wait.until(
                 EC.presence_of_element_located((By.CSS_SELECTOR, "svg[aria-label='Home']"))
             )
             logger.info("Login successful")
             return True
-
         except Exception as e:
             logger.error(f"Login failed: {str(e)}")
             return False
 
-    def scrape_reel(self):
-        """Scrape a reel from Instagram reels page"""
+    def download_reel_from_feed(self):
         try:
-            logger.info("Navigating to reels page")
+            logger.info("Navigating to reels page...")
             self.driver.get("https://www.instagram.com/reels/")
-            time.sleep(random.randint(MIN_WAIT, MAX_WAIT))
+            time.sleep(3)
 
-            logger.info("Searching for a reel...")
+            # Find the first reel in the reels page
+            first_reel = self.wait.until(
+                EC.element_to_be_clickable((By.XPATH, "//div[contains(@class, 'x1lliihq')]"))
+            )
+            first_reel.click()
+            time.sleep(3)
 
-            try:
-                # Click on the first reel in the feed
-                first_reel = self.wait.until(
-                    EC.element_to_be_clickable((By.XPATH, "//div[@role='button']"))
-                )
-                first_reel.click()
-                time.sleep(random.randint(MIN_WAIT, MAX_WAIT))
+            # Get the current URL of the reel
+            reel_url = self.driver.current_url
+            logger.info(f"Reel URL: {reel_url}")
 
-                # Wait for URL to change
-                new_url = self.driver.current_url
-                logger.info(f"Reel URL: {new_url}")
+            # Download the reel using instaloader
+            post = instaloader.Post.from_shortcode(self.loader.context, reel_url.split('/')[-2])
+            filename = f"{reel_url.split('/')[-2]}.mp4"
+            self.loader.download_post(post, target=DOWNLOAD_DIR)
+            downloaded_file_path = os.path.join(DOWNLOAD_DIR, filename)
+            logger.info(f"Expected downloaded file path: {downloaded_file_path}")
 
-                # Extract video element
-                video_element = self.wait.until(
-                    EC.presence_of_element_located((By.TAG_NAME, "video"))
-                )
-                video_url = video_element.get_attribute("src")
-
-                if "blob:" in video_url:
-                    logger.info("Blob URL detected, downloading video data...")
-
-                    # Download the video data from the blob URL
-                    video_data = self.driver.execute_script("""
-                        let video = document.querySelector('video');
-                        return video.src;
-                    """)
-
-                    response = requests.get(video_data, stream=True)
-                    response.raise_for_status()
-
-                    filename = os.path.join(DOWNLOAD_DIR, f"reel_{int(time.time())}.mp4")
-                    with open(filename, "wb") as file:
-                        for chunk in response.iter_content(chunk_size=8192):
-                            if chunk:
-                                file.write(chunk)
-
-                    logger.info(f"Successfully downloaded: {filename}")
-                    return filename
-
-                else:
-                    logger.info("Downloading video from direct URL...")
-                    filename = os.path.join(DOWNLOAD_DIR, f"reel_{int(time.time())}.mp4")
-                    headers = {
-                        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-                        "Accept": "*/*",
-                        "Accept-Encoding": "gzip, deflate, br",
-                        "Connection": "keep-alive",
-                        "Referer": "https://www.instagram.com/"
-                    }
-
-                    response = requests.get(video_url, headers=headers, stream=True)
-                    response.raise_for_status()
-
-                    with open(filename, "wb") as f:
-                        for chunk in response.iter_content(chunk_size=8192):
-                            if chunk:
-                                f.write(chunk)
-
-                    logger.info(f"Successfully downloaded: {filename}")
-                    return filename
-
-            except Exception as e:
-                logger.error(f"Failed to extract video: {str(e)}")
+            # Verify the actual saved file name
+            actual_files = [f for f in os.listdir(DOWNLOAD_DIR) if f.endswith('.mp4')]
+            if actual_files:
+                actual_file_path = max([os.path.join(DOWNLOAD_DIR, f) for f in actual_files], key=os.path.getctime)
+                logger.info(f"Actual downloaded file path: {actual_file_path}")
+                return actual_file_path
+            else:
+                logger.error("No .mp4 files found in the downloads directory after download")
                 return None
-
         except Exception as e:
-            logger.error(f"Failed to scrape reel: {str(e)}")
+            logger.error(f"Failed to download reel: {str(e)}")
             return None
 
+    def upload_reel(self, video_path):
+        # Implement your upload logic here
+        pass
+
     def close(self):
-        """Clean up resources"""
         if self.driver:
-            try:
-                self.driver.quit()
-            except Exception as e:
-                logger.error(f"Error closing browser: {str(e)}")
-
-def scrape_with_retry(username: str = None, max_count: int = 1):
-    """Scrape with retry mechanism
-    Args:
-        username: Optional username to scrape reels from
-        max_count: Maximum number of reels to scrape
-    """
-    for attempt in range(MAX_RETRIES):
-        try:
-            logger.info(f"Scrape attempt {attempt + 1}/{MAX_RETRIES}")
-            scraper = InstagramScraper()
-
-            if scraper.login():
-                result = scraper.scrape_reel()
-                if result:
-                    return result
-
-        except Exception as e:
-            logger.error(f"Scrape attempt {attempt + 1} failed: {str(e)}")
-        finally:
-            if 'scraper' in locals():
-                scraper.close()
-
-        if attempt < MAX_RETRIES - 1:
-            logger.info("Waiting 60 seconds before retry...")
-            time.sleep(60)
-
-    return None
-
-if __name__ == "__main__":
-    scrape_with_retry()
+            self.driver.quit()
