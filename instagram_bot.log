@@ -863,3 +863,825 @@ At least one output file must be specified
 2025-02-10 14:21:05,617 - INFO - Completed
 2025-02-10 14:21:08,079 - INFO - Successfully complete automation cycle
 2025-02-10 14:21:08,080 - INFO - Next run scheduled for: 2025-02-10 14:28:02.080152
+2025-02-10 18:15:53,803 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\paramiko\transport.py:219: CryptographyDeprecationWarning: Blowfish has been deprecated
+  "class": algorithms.Blowfish,
+
+2025-02-10 18:15:55,654 - INFO - Starting Instagram Reel Bot
+2025-02-10 18:15:55,654 - INFO - Starting automation cycle at 2025-02-10 18:15:55.654413
+2025-02-10 18:15:55,670 - INFO - Downloading reel
+2025-02-10 18:15:55,670 - INFO - Setting up Chrome browser...
+2025-02-10 18:15:57,599 - INFO - Browser setup completed successfully
+2025-02-10 18:15:57,602 - INFO - Attempting to login...
+2025-02-10 18:16:09,415 - INFO - Login successful
+2025-02-10 18:16:09,415 - INFO - Navigating to explore page...
+2025-02-10 18:16:19,121 - ERROR - No suitable reel found
+2025-02-10 18:16:19,121 - ERROR - Failed to find suitable reel
+2025-02-10 18:16:21,380 - INFO - Failed to complete automation cycle
+2025-02-10 18:16:21,382 - INFO - Next run scheduled for: 2025-02-10 18:22:12.382535
+2025-02-10 18:17:29,636 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\paramiko\transport.py:219: CryptographyDeprecationWarning: Blowfish has been deprecated
+  "class": algorithms.Blowfish,
+
+2025-02-10 18:17:31,344 - INFO - Starting Instagram Reel Bot
+2025-02-10 18:17:31,344 - INFO - Starting automation cycle at 2025-02-10 18:17:31.344738
+2025-02-10 18:17:31,344 - INFO - Downloading reel
+2025-02-10 18:17:31,344 - INFO - Setting up Chrome browser...
+2025-02-10 18:17:32,600 - INFO - Browser setup completed successfully
+2025-02-10 18:17:32,600 - INFO - Attempting to login...
+2025-02-10 18:17:42,836 - INFO - Login successful
+2025-02-10 18:17:42,836 - INFO - Navigating to explore page...
+2025-02-10 18:17:51,190 - INFO - Found 0 reels on the explore page
+2025-02-10 18:17:51,191 - ERROR - No suitable reel found
+2025-02-10 18:17:51,191 - ERROR - Failed to find suitable reel
+2025-02-10 18:17:53,656 - INFO - Failed to complete automation cycle
+2025-02-10 18:17:53,656 - INFO - Next run scheduled for: 2025-02-10 18:24:38.656855
+2025-02-10 18:19:59,269 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\paramiko\transport.py:219: CryptographyDeprecationWarning: Blowfish has been deprecated
+  "class": algorithms.Blowfish,
+
+2025-02-10 18:20:00,968 - INFO - Starting Instagram Reel Bot
+2025-02-10 18:20:00,968 - INFO - Starting automation cycle at 2025-02-10 18:20:00.968945
+2025-02-10 18:20:00,968 - INFO - Downloading reel
+2025-02-10 18:20:00,968 - INFO - Setting up Chrome browser...
+2025-02-10 18:20:02,372 - INFO - Browser setup completed successfully
+2025-02-10 18:20:02,373 - INFO - Attempting to login...
+2025-02-10 18:20:14,879 - INFO - Login successful
+2025-02-10 18:20:14,880 - INFO - Navigating to explore page...
+2025-02-10 18:20:22,024 - INFO - Found 0 reels on the explore page
+2025-02-10 18:20:25,038 - INFO - Found 0 reels on the explore page
+2025-02-10 18:20:28,057 - INFO - Found 0 reels on the explore page
+2025-02-10 18:20:31,067 - INFO - Found 0 reels on the explore page
+2025-02-10 18:20:34,081 - INFO - Found 0 reels on the explore page
+2025-02-10 18:20:37,100 - INFO - Found 0 reels on the explore page
+2025-02-10 18:20:40,131 - INFO - Found 0 reels on the explore page
+2025-02-10 18:20:43,155 - INFO - Found 0 reels on the explore page
+2025-02-10 18:20:46,171 - INFO - Found 0 reels on the explore page
+2025-02-10 18:20:49,188 - INFO - Found 0 reels on the explore page
+2025-02-10 18:20:52,204 - INFO - Found 0 reels on the explore page
+2025-02-10 18:20:55,216 - INFO - Found 0 reels on the explore page
+2025-02-10 18:20:58,236 - INFO - Found 0 reels on the explore page
+2025-02-10 18:21:01,331 - INFO - Found 0 reels on the explore page
+2025-02-10 18:21:04,355 - INFO - Found 0 reels on the explore page
+2025-02-10 18:21:07,374 - INFO - Found 0 reels on the explore page
+2025-02-10 18:21:10,446 - INFO - Found 0 reels on the explore page
+2025-02-10 18:21:13,577 - INFO - Found 0 reels on the explore page
+2025-02-10 18:21:16,600 - INFO - Found 0 reels on the explore page
+2025-02-10 18:21:19,627 - INFO - Found 0 reels on the explore page
+2025-02-10 18:21:22,647 - INFO - Found 0 reels on the explore page
+2025-02-10 18:21:25,675 - INFO - Found 0 reels on the explore page
+2025-02-10 18:21:28,691 - INFO - Found 0 reels on the explore page
+2025-02-10 18:21:31,713 - ERROR - Failed to find reel: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=133.0.6943.60)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6F5672EC5+28789]
+	(No symbol) [0x00007FF6F55DF870]
+	(No symbol) [0x00007FF6F5478F9A]
+	(No symbol) [0x00007FF6F5464DA5]
+	(No symbol) [0x00007FF6F548971A]
+	(No symbol) [0x00007FF6F54FEFAF]
+	(No symbol) [0x00007FF6F551EFB2]
+	(No symbol) [0x00007FF6F54F6FF3]
+	(No symbol) [0x00007FF6F54BFF0E]
+	(No symbol) [0x00007FF6F54C1193]
+	GetHandleVerifier [0x00007FF6F59BD5FD+3479469]
+	GetHandleVerifier [0x00007FF6F59D71A3+3584851]
+	GetHandleVerifier [0x00007FF6F59CC44D+3540477]
+	GetHandleVerifier [0x00007FF6F5738B6A+838938]
+	(No symbol) [0x00007FF6F55EA4EF]
+	(No symbol) [0x00007FF6F55E6954]
+	(No symbol) [0x00007FF6F55E6AF6]
+	(No symbol) [0x00007FF6F55D6499]
+	BaseThreadInitThunk [0x00007FFDA405259D+29]
+	RtlUserThreadStart [0x00007FFDA46CAF38+40]
+
+2025-02-10 18:21:31,713 - ERROR - Failed to find suitable reel
+2025-02-10 18:47:27,555 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\paramiko\transport.py:219: CryptographyDeprecationWarning: Blowfish has been deprecated
+  "class": algorithms.Blowfish,
+
+2025-02-10 18:47:29,659 - INFO - Starting Instagram Reel Bot
+2025-02-10 18:47:29,659 - INFO - Starting automation cycle at 2025-02-10 18:47:29.659725
+2025-02-10 18:47:29,659 - INFO - Downloading reel
+2025-02-10 18:47:29,661 - INFO - Setting up Chrome browser...
+2025-02-10 18:47:31,185 - INFO - Browser setup completed successfully
+2025-02-10 18:47:31,185 - INFO - Attempting to login...
+2025-02-10 18:47:44,099 - INFO - Login successful
+2025-02-10 18:47:44,115 - INFO - Navigating to explore page...
+2025-02-10 18:47:51,258 - INFO - Found 0 reels on the explore page
+2025-02-10 18:47:54,270 - INFO - Found 0 reels on the explore page
+2025-02-10 18:47:57,287 - INFO - Found 0 reels on the explore page
+2025-02-10 18:48:00,292 - INFO - Found 0 reels on the explore page
+2025-02-10 18:48:03,328 - INFO - Found 0 reels on the explore page
+2025-02-10 18:48:06,462 - INFO - Found 0 reels on the explore page
+2025-02-10 18:48:09,471 - ERROR - Failed to find reel: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=133.0.6943.60)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6B3F62EC5+28789]
+	(No symbol) [0x00007FF6B3ECF870]
+	(No symbol) [0x00007FF6B3D68F9A]
+	(No symbol) [0x00007FF6B3D54DA5]
+	(No symbol) [0x00007FF6B3D7971A]
+	(No symbol) [0x00007FF6B3DEEFAF]
+	(No symbol) [0x00007FF6B3E0EFB2]
+	(No symbol) [0x00007FF6B3DE6FF3]
+	(No symbol) [0x00007FF6B3DAFF0E]
+	(No symbol) [0x00007FF6B3DB1193]
+	GetHandleVerifier [0x00007FF6B42AD5FD+3479469]
+	GetHandleVerifier [0x00007FF6B42C71A3+3584851]
+	GetHandleVerifier [0x00007FF6B42BC44D+3540477]
+	GetHandleVerifier [0x00007FF6B4028B6A+838938]
+	(No symbol) [0x00007FF6B3EDA4EF]
+	(No symbol) [0x00007FF6B3ED6954]
+	(No symbol) [0x00007FF6B3ED6AF6]
+	(No symbol) [0x00007FF6B3EC6499]
+	BaseThreadInitThunk [0x00007FFDA405259D+29]
+	RtlUserThreadStart [0x00007FFDA46CAF38+40]
+
+2025-02-10 18:48:09,471 - ERROR - Failed to find suitable reel
+2025-02-10 18:50:33,731 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\paramiko\transport.py:219: CryptographyDeprecationWarning: Blowfish has been deprecated
+  "class": algorithms.Blowfish,
+
+2025-02-10 18:50:34,459 - INFO - Starting Instagram Reel Bot
+2025-02-10 18:50:34,459 - INFO - Starting automation cycle at 2025-02-10 18:50:34.459053
+2025-02-10 18:50:34,472 - INFO - Downloading reel
+2025-02-10 18:50:34,472 - INFO - Setting up Chrome browser...
+2025-02-10 18:50:35,604 - INFO - Browser setup completed successfully
+2025-02-10 18:50:35,604 - INFO - Attempting to login...
+2025-02-10 18:50:40,573 - INFO - Logged in using cookies
+2025-02-10 18:50:40,573 - INFO - Navigating to explore page...
+2025-02-10 18:50:47,425 - INFO - Found 0 reels on the explore page
+2025-02-10 18:50:50,438 - INFO - Found 0 reels on the explore page
+2025-02-10 18:50:53,442 - INFO - Found 0 reels on the explore page
+2025-02-10 18:50:56,460 - INFO - Found 0 reels on the explore page
+2025-02-10 18:50:59,478 - INFO - Found 0 reels on the explore page
+2025-02-10 18:51:02,488 - INFO - Found 0 reels on the explore page
+2025-02-10 18:51:05,506 - ERROR - Failed to find reel: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=133.0.6943.60)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6B3F62EC5+28789]
+	(No symbol) [0x00007FF6B3ECF870]
+	(No symbol) [0x00007FF6B3D68F9A]
+	(No symbol) [0x00007FF6B3D54DA5]
+	(No symbol) [0x00007FF6B3D7971A]
+	(No symbol) [0x00007FF6B3DEEFAF]
+	(No symbol) [0x00007FF6B3E0EFB2]
+	(No symbol) [0x00007FF6B3DE6FF3]
+	(No symbol) [0x00007FF6B3DAFF0E]
+	(No symbol) [0x00007FF6B3DB1193]
+	GetHandleVerifier [0x00007FF6B42AD5FD+3479469]
+	GetHandleVerifier [0x00007FF6B42C71A3+3584851]
+	GetHandleVerifier [0x00007FF6B42BC44D+3540477]
+	GetHandleVerifier [0x00007FF6B4028B6A+838938]
+	(No symbol) [0x00007FF6B3EDA4EF]
+	(No symbol) [0x00007FF6B3ED6954]
+	(No symbol) [0x00007FF6B3ED6AF6]
+	(No symbol) [0x00007FF6B3EC6499]
+	BaseThreadInitThunk [0x00007FFDA405259D+29]
+	RtlUserThreadStart [0x00007FFDA46CAF38+40]
+
+2025-02-10 18:51:05,514 - ERROR - Failed to find suitable reel
+2025-02-10 18:52:45,783 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\paramiko\transport.py:219: CryptographyDeprecationWarning: Blowfish has been deprecated
+  "class": algorithms.Blowfish,
+
+2025-02-10 18:52:47,626 - INFO - Starting Instagram Reel Bot
+2025-02-10 18:52:47,626 - INFO - Starting automation cycle at 2025-02-10 18:52:47.626618
+2025-02-10 18:52:47,626 - INFO - Downloading reel
+2025-02-10 18:52:47,626 - INFO - Setting up Chrome browser...
+2025-02-10 18:52:49,008 - INFO - Browser setup completed successfully
+2025-02-10 18:52:49,008 - INFO - Attempting to login...
+2025-02-10 18:52:53,710 - INFO - Logged in using cookies
+2025-02-10 18:52:53,713 - INFO - Navigating to explore page...
+2025-02-10 18:53:03,951 - INFO - Found 0 reels on the explore page
+2025-02-10 18:53:06,971 - INFO - Found 0 reels on the explore page
+2025-02-10 18:53:10,011 - INFO - Found 0 reels on the explore page
+2025-02-10 18:53:13,038 - INFO - Found 0 reels on the explore page
+2025-02-10 18:53:16,054 - INFO - Found 0 reels on the explore page
+2025-02-10 18:53:19,070 - INFO - Found 0 reels on the explore page
+2025-02-10 18:53:22,080 - ERROR - Failed to find reel: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=133.0.6943.60)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6B3F62EC5+28789]
+	(No symbol) [0x00007FF6B3ECF870]
+	(No symbol) [0x00007FF6B3D68F9A]
+	(No symbol) [0x00007FF6B3D54DA5]
+	(No symbol) [0x00007FF6B3D7971A]
+	(No symbol) [0x00007FF6B3DEEFAF]
+	(No symbol) [0x00007FF6B3E0EFB2]
+	(No symbol) [0x00007FF6B3DE6FF3]
+	(No symbol) [0x00007FF6B3DAFF0E]
+	(No symbol) [0x00007FF6B3DB1193]
+	GetHandleVerifier [0x00007FF6B42AD5FD+3479469]
+	GetHandleVerifier [0x00007FF6B42C71A3+3584851]
+	GetHandleVerifier [0x00007FF6B42BC44D+3540477]
+	GetHandleVerifier [0x00007FF6B4028B6A+838938]
+	(No symbol) [0x00007FF6B3EDA4EF]
+	(No symbol) [0x00007FF6B3ED6954]
+	(No symbol) [0x00007FF6B3ED6AF6]
+	(No symbol) [0x00007FF6B3EC6499]
+	BaseThreadInitThunk [0x00007FFDA405259D+29]
+	RtlUserThreadStart [0x00007FFDA46CAF38+40]
+
+2025-02-10 18:53:22,089 - ERROR - Failed to find suitable reel
+2025-02-10 18:55:13,252 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\paramiko\transport.py:219: CryptographyDeprecationWarning: Blowfish has been deprecated
+  "class": algorithms.Blowfish,
+
+2025-02-10 18:55:13,965 - INFO - Starting Instagram Reel Bot
+2025-02-10 18:55:13,965 - INFO - Starting automation cycle at 2025-02-10 18:55:13.965786
+2025-02-10 18:55:13,965 - INFO - Downloading reel
+2025-02-10 18:55:13,965 - INFO - Setting up Chrome browser...
+2025-02-10 18:55:15,114 - INFO - Browser setup completed successfully
+2025-02-10 18:55:15,131 - INFO - Attempting to login...
+2025-02-10 18:55:19,500 - INFO - Logged in using cookies
+2025-02-10 18:55:19,501 - INFO - Navigating to reels page...
+2025-02-10 18:55:27,069 - INFO - Found 2 reels on the reels page
+2025-02-10 18:55:57,437 - ERROR - Error checking reel: Message: 
+
+2025-02-10 18:56:01,688 - ERROR - Error checking reel: Message: stale element reference: stale element not found
+  (Session info: chrome=133.0.6943.60)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6B3F62EC5+28789]
+	(No symbol) [0x00007FF6B3ECF870]
+	(No symbol) [0x00007FF6B3D68F9A]
+	(No symbol) [0x00007FF6B3D7EDD4]
+	(No symbol) [0x00007FF6B3D7D8B3]
+	(No symbol) [0x00007FF6B3D716C1]
+	(No symbol) [0x00007FF6B3D71821]
+	(No symbol) [0x00007FF6B3D6F3F2]
+	(No symbol) [0x00007FF6B3D73AA1]
+	(No symbol) [0x00007FF6B3E10A22]
+	(No symbol) [0x00007FF6B3DE721A]
+	(No symbol) [0x00007FF6B3E0F6C3]
+	(No symbol) [0x00007FF6B3DE6FF3]
+	(No symbol) [0x00007FF6B3DAFF0E]
+	(No symbol) [0x00007FF6B3DB1193]
+	GetHandleVerifier [0x00007FF6B42AD5FD+3479469]
+	GetHandleVerifier [0x00007FF6B42C71A3+3584851]
+	GetHandleVerifier [0x00007FF6B42BC44D+3540477]
+	GetHandleVerifier [0x00007FF6B4028B6A+838938]
+	(No symbol) [0x00007FF6B3EDA4EF]
+	(No symbol) [0x00007FF6B3ED6954]
+	(No symbol) [0x00007FF6B3ED6AF6]
+	(No symbol) [0x00007FF6B3EC6499]
+	BaseThreadInitThunk [0x00007FFDA405259D+29]
+	RtlUserThreadStart [0x00007FFDA46CAF38+40]
+
+2025-02-10 18:56:06,905 - ERROR - Failed to find reel: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=133.0.6943.60)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6B3F62EC5+28789]
+	(No symbol) [0x00007FF6B3ECF870]
+	(No symbol) [0x00007FF6B3D68F9A]
+	(No symbol) [0x00007FF6B3D54DA5]
+	(No symbol) [0x00007FF6B3D7971A]
+	(No symbol) [0x00007FF6B3DEEFAF]
+	(No symbol) [0x00007FF6B3E0EFB2]
+	(No symbol) [0x00007FF6B3DE6FF3]
+	(No symbol) [0x00007FF6B3DAFF0E]
+	(No symbol) [0x00007FF6B3DB1193]
+	GetHandleVerifier [0x00007FF6B42AD5FD+3479469]
+	GetHandleVerifier [0x00007FF6B42C71A3+3584851]
+	GetHandleVerifier [0x00007FF6B42BC44D+3540477]
+	GetHandleVerifier [0x00007FF6B4028B6A+838938]
+	(No symbol) [0x00007FF6B3EDA4EF]
+	(No symbol) [0x00007FF6B3ED6954]
+	(No symbol) [0x00007FF6B3ED6AF6]
+	(No symbol) [0x00007FF6B3EC6499]
+	BaseThreadInitThunk [0x00007FFDA405259D+29]
+	RtlUserThreadStart [0x00007FFDA46CAF38+40]
+
+2025-02-10 18:56:06,905 - ERROR - Failed to find suitable reel
+2025-02-10 18:57:29,517 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\paramiko\transport.py:219: CryptographyDeprecationWarning: Blowfish has been deprecated
+  "class": algorithms.Blowfish,
+
+2025-02-10 18:57:31,211 - INFO - Starting Instagram Reel Bot
+2025-02-10 18:57:31,211 - INFO - Starting automation cycle at 2025-02-10 18:57:31.211878
+2025-02-10 18:57:31,228 - INFO - Downloading reel
+2025-02-10 18:57:31,228 - INFO - Setting up Chrome browser...
+2025-02-10 18:57:32,453 - INFO - Browser setup completed successfully
+2025-02-10 18:57:32,454 - INFO - Attempting to login...
+2025-02-10 18:57:36,736 - INFO - Logged in using cookies
+2025-02-10 18:57:36,737 - INFO - Navigating to reels page...
+2025-02-10 18:57:42,017 - INFO - Found 0 reels on the reels page
+2025-02-10 18:57:45,041 - INFO - Found 0 reels on the reels page
+2025-02-10 18:57:48,059 - INFO - Found 0 reels on the reels page
+2025-02-10 18:57:51,071 - INFO - Found 0 reels on the reels page
+2025-02-10 18:57:54,087 - INFO - Found 0 reels on the reels page
+2025-02-10 18:57:57,100 - INFO - Found 0 reels on the reels page
+2025-02-10 19:01:52,306 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\paramiko\transport.py:219: CryptographyDeprecationWarning: Blowfish has been deprecated
+  "class": algorithms.Blowfish,
+
+2025-02-10 19:01:53,037 - INFO - Starting Instagram Reel Bot
+2025-02-10 19:01:53,037 - INFO - Starting automation cycle at 2025-02-10 19:01:53.037502
+2025-02-10 19:01:53,037 - INFO - Downloading reel
+2025-02-10 19:01:53,037 - INFO - Setting up Chrome browser...
+2025-02-10 19:01:54,713 - INFO - Browser setup completed successfully
+2025-02-10 19:01:54,715 - INFO - Attempting to login...
+2025-02-10 19:02:01,401 - INFO - Logged in using cookies
+2025-02-10 19:02:01,401 - ERROR - Error processing reel: 'InstagramBot' object has no attribute 'find_reel_with_criteria'
+2025-02-10 19:02:03,749 - INFO - Failed to complete automation cycle
+2025-02-10 19:02:03,750 - INFO - Next run scheduled for: 2025-02-10 19:07:15.750619
+2025-02-10 19:02:27,796 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\paramiko\transport.py:219: CryptographyDeprecationWarning: Blowfish has been deprecated
+  "class": algorithms.Blowfish,
+
+2025-02-10 19:02:28,444 - INFO - Starting Instagram Reel Bot
+2025-02-10 19:02:28,444 - INFO - Starting automation cycle at 2025-02-10 19:02:28.444845
+2025-02-10 19:02:28,444 - INFO - Downloading reel
+2025-02-10 19:02:28,460 - INFO - Setting up Chrome browser...
+2025-02-10 19:02:29,554 - INFO - Browser setup completed successfully
+2025-02-10 19:02:29,554 - INFO - Attempting to login...
+2025-02-10 19:02:33,883 - INFO - Logged in using cookies
+2025-02-10 19:02:33,884 - ERROR - Error processing reel: 'InstagramBot' object has no attribute 'find_reel_with_criteria'
+2025-02-10 19:02:36,114 - INFO - Failed to complete automation cycle
+2025-02-10 19:02:36,115 - INFO - Next run scheduled for: 2025-02-10 19:09:23.115767
+2025-02-10 19:06:36,735 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\paramiko\transport.py:219: CryptographyDeprecationWarning: Blowfish has been deprecated
+  "class": algorithms.Blowfish,
+
+2025-02-10 19:06:37,490 - INFO - Starting Instagram Reel Bot
+2025-02-10 19:06:37,491 - INFO - Starting automation cycle at 2025-02-10 19:06:37.491137
+2025-02-10 19:06:37,491 - INFO - Downloading reel
+2025-02-10 19:06:37,491 - INFO - Setting up Chrome browser...
+2025-02-10 19:06:38,551 - INFO - Browser setup completed successfully
+2025-02-10 19:06:38,551 - INFO - Attempting to login...
+2025-02-10 19:06:43,339 - INFO - Logged in using cookies
+2025-02-10 19:06:43,340 - ERROR - Error processing reel: 'InstagramBot' object has no attribute 'find_reel_with_criteria'
+2025-02-10 19:06:45,591 - INFO - Failed to complete automation cycle
+2025-02-10 19:06:45,591 - INFO - Next run scheduled for: 2025-02-10 19:12:24.591119
+2025-02-10 19:08:36,767 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\paramiko\transport.py:219: CryptographyDeprecationWarning: Blowfish has been deprecated
+  "class": algorithms.Blowfish,
+
+2025-02-10 19:08:37,501 - INFO - Starting Instagram Reel Bot
+2025-02-10 19:08:37,501 - INFO - Starting automation cycle at 2025-02-10 19:08:37.501579
+2025-02-10 19:08:37,501 - INFO - Downloading reel
+2025-02-10 19:08:37,501 - INFO - Setting up Chrome browser...
+2025-02-10 19:08:38,782 - INFO - Browser setup completed successfully
+2025-02-10 19:08:38,782 - INFO - Attempting to login...
+2025-02-10 19:08:48,413 - INFO - Logged in using cookies
+2025-02-10 19:08:48,413 - ERROR - Error processing reel: 'InstagramBot' object has no attribute 'find_reel_with_criteria'
+2025-02-10 19:08:50,736 - INFO - Failed to complete automation cycle
+2025-02-10 19:08:50,737 - INFO - Next run scheduled for: 2025-02-10 19:14:10.737851
+2025-02-10 19:13:44,117 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\paramiko\transport.py:219: CryptographyDeprecationWarning: Blowfish has been deprecated
+  "class": algorithms.Blowfish,
+
+2025-02-10 19:13:45,625 - INFO - Starting Instagram Reel Bot
+2025-02-10 19:13:45,625 - INFO - Starting automation cycle at 2025-02-10 19:13:45.625464
+2025-02-10 19:13:45,625 - INFO - Downloading reel
+2025-02-10 19:13:45,625 - INFO - Setting up Chrome browser...
+2025-02-10 19:13:47,285 - INFO - Browser setup completed successfully
+2025-02-10 19:13:47,285 - INFO - Attempting to login...
+2025-02-10 19:13:55,216 - INFO - Logged in using cookies
+2025-02-10 19:13:55,217 - ERROR - Error processing reel: 'InstagramBot' object has no attribute 'find_reel_with_criteria'
+2025-02-10 19:13:57,484 - INFO - Failed to complete automation cycle
+2025-02-10 19:13:57,485 - INFO - Next run scheduled for: 2025-02-10 19:20:17.485375
+2025-02-10 19:16:58,498 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\paramiko\transport.py:219: CryptographyDeprecationWarning: Blowfish has been deprecated
+  "class": algorithms.Blowfish,
+
+2025-02-10 19:17:00,161 - INFO - Setting up Chrome browser...
+2025-02-10 19:17:01,985 - INFO - Browser setup completed successfully
+2025-02-10 19:17:01,985 - INFO - Attempting to login...
+2025-02-10 19:17:09,529 - INFO - Logged in using cookies
+2025-02-10 19:17:09,530 - INFO - Navigating to reels page...
+2025-02-10 19:17:18,007 - INFO - Reel URL: https://www.instagram.com/reels/DFWsV_diOr9/
+2025-02-10 19:17:23,281 - INFO - Expected downloaded file path: C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\DFWsV_diOr9.mp4
+2025-02-10 19:17:23,281 - INFO - Actual downloaded file path: C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2025-01-28_03-43-26_UTC.mp4
+2025-02-10 19:17:23,281 - INFO - Downloaded reel to C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2025-01-28_03-43-26_UTC.mp4
+2025-02-10 19:30:55,194 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\paramiko\transport.py:219: CryptographyDeprecationWarning: Blowfish has been deprecated
+  "class": algorithms.Blowfish,
+
+2025-02-10 19:30:56,959 - INFO - Starting Instagram Reel Bot
+2025-02-10 19:30:56,959 - INFO - Starting automation cycle at 2025-02-10 19:30:56.959150
+2025-02-10 19:30:56,959 - INFO - Downloading reel
+2025-02-10 19:30:56,967 - INFO - Setting up Chrome browser...
+2025-02-10 19:30:58,761 - INFO - Browser setup completed successfully
+2025-02-10 19:30:58,761 - INFO - Attempting to login with cookies...
+2025-02-10 19:31:07,336 - INFO - Logged in using cookies
+2025-02-10 19:31:07,336 - INFO - Navigating to reels page...
+2025-02-10 19:31:18,015 - INFO - Reel URL: https://www.instagram.com/reels/DEPdK4fI0rS/
+2025-02-10 19:31:19,596 - INFO - Expected downloaded file path: C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\DEPdK4fI0rS.mp4
+2025-02-10 19:31:19,597 - INFO - Actual downloaded file path: C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2024-12-31_11-44-03_UTC.mp4
+2025-02-10 19:31:24,082 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2024-12-31_11-44-03_UTC.mp4, 2764800 bytes wanted but 0 bytes read,at frame 176/179, at time 5.87/5.96 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 19:31:24,101 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2024-12-31_11-44-03_UTC.mp4, 2764800 bytes wanted but 0 bytes read,at frame 177/179, at time 5.90/5.96 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 19:31:24,118 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2024-12-31_11-44-03_UTC.mp4, 2764800 bytes wanted but 0 bytes read,at frame 178/179, at time 5.93/5.96 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 19:31:27,780 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\cropped_processed_video.mp4, 2448936 bytes wanted but 0 bytes read,at frame 179/180, at time 5.97/5.98 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 19:31:32,790 - INFO - Uploading file: C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\processed_video.mp4
+2025-02-10 19:31:32,790 - INFO - Attempting to login...
+2025-02-10 19:31:32,790 - INFO - https://i.instagram.com/api/v1/launcher/sync/
+2025-02-10 19:31:33,201 - INFO - mdk760603 [200] POST https://i.instagram.com/api/v1/launcher/sync/ (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 19:31:33,547 - INFO - https://i.instagram.com/api/v1/accounts/login/
+2025-02-10 19:31:38,041 - INFO - mdk760603 [200] POST https://i.instagram.com/api/v1/accounts/login/ (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 19:31:39,044 - INFO - https://i.instagram.com/api/v1/feed/reels_tray/
+2025-02-10 19:31:39,547 - INFO - mdk760603 [200] POST https://i.instagram.com/api/v1/feed/reels_tray/ (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 19:31:40,560 - INFO - https://i.instagram.com/api/v1/feed/timeline/
+2025-02-10 19:31:41,651 - INFO - mdk760603 [200] POST https://i.instagram.com/api/v1/feed/timeline/ (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 19:31:41,651 - INFO - Login successful
+2025-02-10 19:31:41,651 - INFO - Upload attempt 1/3
+2025-02-10 19:31:41,651 - INFO - Uploading file: C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\processed_video.mp4
+2025-02-10 19:31:41,651 - INFO - Attempting to upload reel: C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\processed_video.mp4
+2025-02-10 19:31:42,886 - INFO - mdk760603 [200] GET https://i.instagram.com/rupload_igvideo/1739196101651_0_1883577188 (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 19:31:45,159 - INFO - mdk760603 [200] POST https://i.instagram.com/rupload_igvideo/1739196101651_0_1883577188 (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 19:31:56,258 - INFO - mdk760603 [200] POST https://i.instagram.com/rupload_igphoto/1739196101651_0_9789218612 (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 19:31:57,262 - INFO - https://i.instagram.com/api/v1/media/configure_to_clips/?video=1
+2025-02-10 19:32:03,324 - INFO - mdk760603 [200] POST https://i.instagram.com/api/v1/media/configure_to_clips/?video=1 (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 19:32:04,337 - INFO - https://i.instagram.com/api/v1/qe/expose/
+2025-02-10 19:32:04,618 - INFO - mdk760603 [200] POST https://i.instagram.com/api/v1/qe/expose/ (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 19:32:04,618 - INFO - Successfully uploaded reel: C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\processed_video.mp4
+2025-02-10 19:32:04,634 - INFO - Completed
+2025-02-10 19:32:06,828 - INFO - Successfully complete automation cycle
+2025-02-10 19:32:06,828 - INFO - Next run scheduled for: 2025-02-10 19:37:25.828519
+2025-02-10 19:35:49,891 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\paramiko\transport.py:219: CryptographyDeprecationWarning: Blowfish has been deprecated
+  "class": algorithms.Blowfish,
+
+2025-02-10 19:35:51,082 - INFO - Starting Instagram Reel Bot
+2025-02-10 19:35:51,082 - INFO - Starting automation cycle at 2025-02-10 19:35:51.082001
+2025-02-10 19:35:51,082 - INFO - Downloading reel
+2025-02-10 19:35:51,082 - INFO - Setting up Chrome browser...
+2025-02-10 19:35:52,799 - INFO - Browser setup completed successfully
+2025-02-10 19:35:52,799 - INFO - Attempting to login with cookies...
+2025-02-10 19:35:57,417 - WARNING - No cookies found, falling back to username/password login
+2025-02-10 19:35:57,419 - INFO - Attempting to login with username and password...
+2025-02-10 19:36:01,418 - ERROR - Login failed: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: chrome=133.0.6943.60)
+Stacktrace:
+	GetHandleVerifier [0x00007FF69BF42EC5+28789]
+	(No symbol) [0x00007FF69BEAF870]
+	(No symbol) [0x00007FF69BD48F9A]
+	(No symbol) [0x00007FF69BD34DA5]
+	(No symbol) [0x00007FF69BD5971A]
+	(No symbol) [0x00007FF69BDCEFAF]
+	(No symbol) [0x00007FF69BDEEFB2]
+	(No symbol) [0x00007FF69BDC6FF3]
+	(No symbol) [0x00007FF69BD8FF0E]
+	(No symbol) [0x00007FF69BD91193]
+	GetHandleVerifier [0x00007FF69C28D5FD+3479469]
+	GetHandleVerifier [0x00007FF69C2A71A3+3584851]
+	GetHandleVerifier [0x00007FF69C29C44D+3540477]
+	GetHandleVerifier [0x00007FF69C008B6A+838938]
+	(No symbol) [0x00007FF69BEBA4EF]
+	(No symbol) [0x00007FF69BEB6954]
+	(No symbol) [0x00007FF69BEB6AF6]
+	(No symbol) [0x00007FF69BEA6499]
+	BaseThreadInitThunk [0x00007FFDA405259D+29]
+	RtlUserThreadStart [0x00007FFDA46CAF38+40]
+
+2025-02-10 19:36:01,421 - ERROR - Error processing reel: Failed to login
+2025-02-10 19:36:03,529 - INFO - Failed to complete automation cycle
+2025-02-10 19:36:03,530 - INFO - Next run scheduled for: 2025-02-10 20:09:56.530704
+2025-02-10 19:36:10,822 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\paramiko\transport.py:219: CryptographyDeprecationWarning: Blowfish has been deprecated
+  "class": algorithms.Blowfish,
+
+2025-02-10 19:36:12,553 - INFO - Starting Instagram Reel Bot
+2025-02-10 19:36:12,553 - INFO - Starting automation cycle at 2025-02-10 19:36:12.553558
+2025-02-10 19:36:12,553 - INFO - Downloading reel
+2025-02-10 19:36:12,569 - INFO - Setting up Chrome browser...
+2025-02-10 19:36:13,710 - INFO - Browser setup completed successfully
+2025-02-10 19:36:13,710 - INFO - Attempting to login with cookies...
+2025-02-10 19:36:18,389 - WARNING - No cookies found, falling back to username/password login
+2025-02-10 19:36:18,389 - INFO - Attempting to login with username and password...
+2025-02-10 19:36:31,319 - INFO - Login successful
+2025-02-10 19:36:31,327 - INFO - Navigating to reels page...
+2025-02-10 19:36:41,459 - INFO - Reel URL: https://www.instagram.com/reels/C-ulm4lSdIr/
+2025-02-10 19:36:44,990 - INFO - Expected downloaded file path: C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\C-ulm4lSdIr.mp4
+2025-02-10 19:36:44,991 - INFO - Actual downloaded file path: C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2024-08-16_10-45-52_UTC.mp4
+2025-02-10 19:37:47,077 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\paramiko\transport.py:219: CryptographyDeprecationWarning: Blowfish has been deprecated
+  "class": algorithms.Blowfish,
+
+2025-02-10 19:37:47,728 - INFO - Starting Instagram Reel Bot
+2025-02-10 19:37:47,728 - INFO - Starting automation cycle at 2025-02-10 19:37:47.728097
+2025-02-10 19:37:47,728 - INFO - Downloading reel
+2025-02-10 19:37:47,728 - INFO - Setting up Chrome browser...
+2025-02-10 19:37:48,937 - INFO - Browser setup completed successfully
+2025-02-10 19:37:48,937 - INFO - Attempting to login with cookies...
+2025-02-10 19:37:56,211 - INFO - Logged in using cookies
+2025-02-10 19:37:56,212 - INFO - Navigating to reels page...
+2025-02-10 19:38:06,382 - INFO - Reel URL: https://www.instagram.com/reels/DE4m7I4y6f5/
+2025-02-10 19:38:09,138 - INFO - Expected downloaded file path: C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\DE4m7I4y6f5.mp4
+2025-02-10 19:38:09,138 - INFO - Actual downloaded file path: C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2025-01-16_11-30-54_UTC.mp4
+2025-02-10 19:38:24,413 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2025-01-16_11-30-54_UTC.mp4, 2764800 bytes wanted but 0 bytes read,at frame 923/930, at time 30.77/30.97 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 19:38:24,419 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2025-01-16_11-30-54_UTC.mp4, 2764800 bytes wanted but 0 bytes read,at frame 924/930, at time 30.80/30.97 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 19:38:24,430 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2025-01-16_11-30-54_UTC.mp4, 2764800 bytes wanted but 0 bytes read,at frame 925/930, at time 30.83/30.97 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 19:38:24,440 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2025-01-16_11-30-54_UTC.mp4, 2764800 bytes wanted but 0 bytes read,at frame 926/930, at time 30.87/30.97 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 19:38:24,451 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2025-01-16_11-30-54_UTC.mp4, 2764800 bytes wanted but 0 bytes read,at frame 927/930, at time 30.90/30.97 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 19:38:24,456 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2025-01-16_11-30-54_UTC.mp4, 2764800 bytes wanted but 0 bytes read,at frame 928/930, at time 30.93/30.97 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 19:38:24,467 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2025-01-16_11-30-54_UTC.mp4, 2764800 bytes wanted but 0 bytes read,at frame 929/930, at time 30.97/30.97 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 19:38:59,177 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\bordered_processed_video.mp4, 2563056 bytes wanted but 0 bytes read,at frame 930/931, at time 31.00/31.01 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 19:38:59,285 - INFO - Uploading file: C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\processed_video.mp4
+2025-02-10 19:38:59,286 - INFO - Attempting to login...
+2025-02-10 19:38:59,286 - INFO - https://i.instagram.com/api/v1/launcher/sync/
+2025-02-10 19:38:59,669 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/launcher/sync/ (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 19:38:59,968 - INFO - https://i.instagram.com/api/v1/accounts/login/
+2025-02-10 19:39:05,592 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/accounts/login/ (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 19:39:06,598 - INFO - https://i.instagram.com/api/v1/feed/reels_tray/
+2025-02-10 19:39:07,382 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/feed/reels_tray/ (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 19:39:08,390 - INFO - https://i.instagram.com/api/v1/feed/timeline/
+2025-02-10 19:39:10,188 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/feed/timeline/ (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 19:39:10,188 - INFO - Login successful
+2025-02-10 19:39:10,188 - INFO - Upload attempt 1/3
+2025-02-10 19:39:10,188 - INFO - Uploading file: C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\processed_video.mp4
+2025-02-10 19:39:10,188 - INFO - Attempting to upload reel: C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\processed_video.mp4
+2025-02-10 19:39:11,249 - INFO - liftlearnrepeat [200] GET https://i.instagram.com/rupload_igvideo/1739196550188_0_3924500484 (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 19:39:13,253 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/rupload_igvideo/1739196550188_0_3924500484 (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 19:39:24,326 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/rupload_igphoto/1739196550188_0_6033574308 (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 19:39:25,343 - INFO - https://i.instagram.com/api/v1/media/configure_to_clips/?video=1
+2025-02-10 19:39:30,370 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/media/configure_to_clips/?video=1 (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 19:39:31,375 - INFO - https://i.instagram.com/api/v1/qe/expose/
+2025-02-10 19:39:31,646 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/qe/expose/ (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 19:39:31,660 - INFO - Successfully uploaded reel: C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\processed_video.mp4
+2025-02-10 19:39:31,660 - INFO - Completed
+2025-02-10 19:39:33,860 - INFO - Successfully complete automation cycle
+2025-02-10 19:39:33,860 - INFO - Next run scheduled for: 2025-02-10 20:13:19.860495
+2025-02-10 20:13:19,862 - INFO - Starting automation cycle at 2025-02-10 20:13:19.862338
+2025-02-10 20:13:19,866 - INFO - Downloading reel
+2025-02-10 20:13:19,866 - INFO - Setting up Chrome browser...
+2025-02-10 20:13:22,121 - INFO - Browser setup completed successfully
+2025-02-10 20:13:22,123 - INFO - Attempting to login with cookies...
+2025-02-10 20:13:32,617 - INFO - Logged in using cookies
+2025-02-10 20:13:32,619 - INFO - Navigating to reels page...
+2025-02-10 20:13:41,058 - INFO - Reel URL: https://www.instagram.com/reels/DD5-MegS8ZY/
+2025-02-10 20:13:44,635 - INFO - Expected downloaded file path: C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\DD5-MegS8ZY.mp4
+2025-02-10 20:13:44,637 - INFO - Actual downloaded file path: C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2024-12-23_03-29-27_UTC.mp4
+2025-02-10 20:13:53,957 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2024-12-23_03-29-27_UTC.mp4, 2764800 bytes wanted but 0 bytes read,at frame 384/388, at time 14.11/14.23 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 20:13:53,979 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2024-12-23_03-29-27_UTC.mp4, 2764800 bytes wanted but 0 bytes read,at frame 385/388, at time 14.14/14.23 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 20:13:53,998 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2024-12-23_03-29-27_UTC.mp4, 2764800 bytes wanted but 0 bytes read,at frame 386/388, at time 14.18/14.23 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 20:13:54,023 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2024-12-23_03-29-27_UTC.mp4, 2764800 bytes wanted but 0 bytes read,at frame 387/388, at time 14.22/14.23 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 20:14:13,879 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\bordered_processed_video.mp4, 2563056 bytes wanted but 0 bytes read,at frame 388/389, at time 14.25/14.26 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 20:14:14,188 - INFO - Uploading file: C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\processed_video.mp4
+2025-02-10 20:14:14,204 - INFO - Attempting to login...
+2025-02-10 20:14:14,204 - INFO - https://i.instagram.com/api/v1/launcher/sync/
+2025-02-10 20:14:14,702 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/launcher/sync/ (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 20:14:15,005 - INFO - https://i.instagram.com/api/v1/accounts/login/
+2025-02-10 20:14:20,888 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/accounts/login/ (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 20:14:21,903 - INFO - https://i.instagram.com/api/v1/feed/reels_tray/
+2025-02-10 20:14:22,955 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/feed/reels_tray/ (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 20:14:23,964 - INFO - https://i.instagram.com/api/v1/feed/timeline/
+2025-02-10 20:14:26,010 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/feed/timeline/ (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 20:14:26,018 - INFO - Login successful
+2025-02-10 20:14:26,019 - INFO - Upload attempt 1/3
+2025-02-10 20:14:26,020 - INFO - Uploading file: C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\processed_video.mp4
+2025-02-10 20:14:26,022 - INFO - Attempting to upload reel: C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\processed_video.mp4
+2025-02-10 20:14:27,122 - INFO - liftlearnrepeat [200] GET https://i.instagram.com/rupload_igvideo/1739198666027_0_1220318592 (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 20:14:29,034 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/rupload_igvideo/1739198666027_0_1220318592 (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 20:14:39,841 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/rupload_igphoto/1739198666027_0_4631038544 (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 20:14:40,847 - INFO - https://i.instagram.com/api/v1/media/configure_to_clips/?video=1
+2025-02-10 20:14:49,703 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/media/configure_to_clips/?video=1 (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 20:14:50,710 - INFO - https://i.instagram.com/api/v1/qe/expose/
+2025-02-10 20:14:50,970 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/qe/expose/ (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 20:14:50,970 - INFO - Successfully uploaded reel: C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\processed_video.mp4
+2025-02-10 20:14:50,987 - INFO - Completed
+2025-02-10 20:14:53,433 - INFO - Successfully complete automation cycle
+2025-02-10 20:14:53,434 - INFO - Next run scheduled for: 2025-02-10 20:48:30.434455
+2025-02-10 20:48:30,436 - INFO - Starting automation cycle at 2025-02-10 20:48:30.436393
+2025-02-10 20:48:30,436 - INFO - Downloading reel
+2025-02-10 20:48:30,436 - INFO - Setting up Chrome browser...
+2025-02-10 20:48:33,023 - INFO - Browser setup completed successfully
+2025-02-10 20:48:33,023 - INFO - Attempting to login with cookies...
+2025-02-10 20:49:20,975 - INFO - Logged in using cookies
+2025-02-10 20:49:20,975 - INFO - Navigating to reels page...
+2025-02-10 20:49:31,520 - INFO - Reel URL: https://www.instagram.com/reels/DExVvqpvP1V/
+2025-02-10 20:49:33,513 - INFO - Expected downloaded file path: C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\DExVvqpvP1V.mp4
+2025-02-10 20:49:33,514 - INFO - Actual downloaded file path: C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2025-01-13_15-36-27_UTC.mp4
+2025-02-10 20:49:39,323 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2025-01-13_15-36-27_UTC.mp4, 2764800 bytes wanted but 0 bytes read,at frame 255/258, at time 8.50/8.59 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 20:49:39,341 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2025-01-13_15-36-27_UTC.mp4, 2764800 bytes wanted but 0 bytes read,at frame 256/258, at time 8.53/8.59 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 20:49:39,361 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2025-01-13_15-36-27_UTC.mp4, 2764800 bytes wanted but 0 bytes read,at frame 257/258, at time 8.57/8.59 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 20:49:52,653 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\bordered_processed_video.mp4, 2563056 bytes wanted but 0 bytes read,at frame 258/259, at time 8.60/8.62 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 20:49:52,969 - INFO - Uploading file: C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\processed_video.mp4
+2025-02-10 20:49:52,969 - INFO - Attempting to login...
+2025-02-10 20:49:52,969 - INFO - https://i.instagram.com/api/v1/launcher/sync/
+2025-02-10 20:49:53,508 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/launcher/sync/ (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 20:49:53,904 - INFO - https://i.instagram.com/api/v1/accounts/login/
+2025-02-10 20:49:59,804 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/accounts/login/ (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 20:50:00,822 - INFO - https://i.instagram.com/api/v1/feed/reels_tray/
+2025-02-10 20:50:01,630 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/feed/reels_tray/ (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 20:50:02,633 - INFO - https://i.instagram.com/api/v1/feed/timeline/
+2025-02-10 20:50:04,545 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/feed/timeline/ (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 20:50:04,554 - INFO - Login successful
+2025-02-10 20:50:04,555 - INFO - Upload attempt 1/3
+2025-02-10 20:50:04,556 - INFO - Uploading file: C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\processed_video.mp4
+2025-02-10 20:50:04,557 - INFO - Attempting to upload reel: C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\processed_video.mp4
+2025-02-10 20:50:05,822 - INFO - liftlearnrepeat [200] GET https://i.instagram.com/rupload_igvideo/1739200804558_0_3134152335 (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 20:50:08,121 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/rupload_igvideo/1739200804558_0_3134152335 (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 20:50:19,304 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/rupload_igphoto/1739200804558_0_6469280412 (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 20:50:20,310 - INFO - https://i.instagram.com/api/v1/media/configure_to_clips/?video=1
+2025-02-10 20:50:27,957 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/media/configure_to_clips/?video=1 (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 20:50:28,960 - INFO - https://i.instagram.com/api/v1/qe/expose/
+2025-02-10 20:50:29,871 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/qe/expose/ (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 20:50:29,871 - INFO - Successfully uploaded reel: C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\processed_video.mp4
+2025-02-10 20:50:29,871 - INFO - Completed
+2025-02-10 20:50:32,274 - INFO - Successfully complete automation cycle
+2025-02-10 20:50:32,274 - INFO - Next run scheduled for: 2025-02-10 21:23:00.274249
+2025-02-10 21:23:00,277 - INFO - Starting automation cycle at 2025-02-10 21:23:00.277337
+2025-02-10 21:23:00,281 - INFO - Downloading reel
+2025-02-10 21:23:00,281 - INFO - Setting up Chrome browser...
+2025-02-10 21:23:02,351 - INFO - Browser setup completed successfully
+2025-02-10 21:23:02,353 - INFO - Attempting to login with cookies...
+2025-02-10 21:23:10,429 - INFO - Logged in using cookies
+2025-02-10 21:23:10,430 - INFO - Navigating to reels page...
+2025-02-10 21:23:20,819 - INFO - Reel URL: https://www.instagram.com/reels/DFFEgo9Pzak/
+2025-02-10 21:23:23,600 - INFO - Expected downloaded file path: C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\DFFEgo9Pzak.mp4
+2025-02-10 21:23:23,600 - INFO - Actual downloaded file path: C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2025-01-21_07-33-41_UTC.mp4
+2025-02-10 21:23:30,899 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2025-01-21_07-33-41_UTC.mp4, 2764800 bytes wanted but 0 bytes read,at frame 303/310, at time 10.10/10.31 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 21:23:30,921 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2025-01-21_07-33-41_UTC.mp4, 2764800 bytes wanted but 0 bytes read,at frame 304/310, at time 10.13/10.31 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 21:23:30,942 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2025-01-21_07-33-41_UTC.mp4, 2764800 bytes wanted but 0 bytes read,at frame 305/310, at time 10.17/10.31 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 21:23:30,978 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2025-01-21_07-33-41_UTC.mp4, 2764800 bytes wanted but 0 bytes read,at frame 306/310, at time 10.20/10.31 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 21:23:31,004 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2025-01-21_07-33-41_UTC.mp4, 2764800 bytes wanted but 0 bytes read,at frame 307/310, at time 10.23/10.31 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 21:23:31,043 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2025-01-21_07-33-41_UTC.mp4, 2764800 bytes wanted but 0 bytes read,at frame 308/310, at time 10.27/10.31 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 21:23:31,073 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2025-01-21_07-33-41_UTC.mp4, 2764800 bytes wanted but 0 bytes read,at frame 309/310, at time 10.30/10.31 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 21:23:48,611 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\bordered_processed_video.mp4, 2563056 bytes wanted but 0 bytes read,at frame 310/311, at time 10.33/10.35 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 21:23:48,846 - INFO - Uploading file: C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\processed_video.mp4
+2025-02-10 21:23:48,864 - INFO - Attempting to login...
+2025-02-10 21:23:48,867 - INFO - https://i.instagram.com/api/v1/launcher/sync/
+2025-02-10 21:23:49,449 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/launcher/sync/ (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 21:23:49,900 - INFO - https://i.instagram.com/api/v1/accounts/login/
+2025-02-10 21:23:55,647 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/accounts/login/ (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 21:23:56,658 - INFO - https://i.instagram.com/api/v1/feed/reels_tray/
+2025-02-10 21:23:57,298 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/feed/reels_tray/ (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 21:23:58,301 - INFO - https://i.instagram.com/api/v1/feed/timeline/
+2025-02-10 21:24:00,371 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/feed/timeline/ (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 21:24:00,393 - INFO - Login successful
+2025-02-10 21:24:00,393 - INFO - Upload attempt 1/3
+2025-02-10 21:24:00,393 - INFO - Uploading file: C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\processed_video.mp4
+2025-02-10 21:24:00,393 - INFO - Attempting to upload reel: C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\processed_video.mp4
+2025-02-10 21:24:01,548 - INFO - liftlearnrepeat [200] GET https://i.instagram.com/rupload_igvideo/1739202840398_0_2485182975 (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 21:24:04,432 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/rupload_igvideo/1739202840398_0_2485182975 (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 21:24:15,532 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/rupload_igphoto/1739202840398_0_6271794961 (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 21:24:16,546 - INFO - https://i.instagram.com/api/v1/media/configure_to_clips/?video=1
+2025-02-10 21:24:25,117 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/media/configure_to_clips/?video=1 (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 21:24:26,120 - INFO - https://i.instagram.com/api/v1/qe/expose/
+2025-02-10 21:24:26,634 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/qe/expose/ (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 21:24:26,634 - INFO - Successfully uploaded reel: C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\processed_video.mp4
+2025-02-10 21:24:26,634 - INFO - Completed
+2025-02-10 21:24:28,891 - INFO - Successfully complete automation cycle
+2025-02-10 21:24:28,891 - INFO - Next run scheduled for: 2025-02-10 21:57:10.891842
+2025-02-10 21:29:41,997 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\paramiko\transport.py:219: CryptographyDeprecationWarning: Blowfish has been deprecated
+  "class": algorithms.Blowfish,
+
+2025-02-10 21:29:43,620 - INFO - Starting Instagram Reel Bot
+2025-02-10 21:29:43,620 - INFO - Starting automation cycle at 2025-02-10 21:29:43.620860
+2025-02-10 21:29:43,629 - INFO - Downloading reel
+2025-02-10 21:29:43,629 - INFO - Setting up Chrome browser...
+2025-02-10 21:29:44,896 - INFO - Browser setup completed successfully
+2025-02-10 21:29:44,896 - INFO - Attempting to login with cookies...
+2025-02-10 21:29:54,096 - INFO - Logged in using cookies
+2025-02-10 21:29:54,097 - INFO - Navigating to reels page...
+2025-02-10 21:30:02,479 - INFO - Reel URL: https://www.instagram.com/reels/DE2fxW_zHot/
+2025-02-10 21:30:07,072 - INFO - Expected downloaded file path: C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\DE2fxW_zHot.mp4
+2025-02-10 21:30:07,074 - INFO - Actual downloaded file path: C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2025-01-15_15-41-42_UTC.mp4
+2025-02-10 21:30:12,135 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2025-01-15_15-41-42_UTC.mp4, 2764800 bytes wanted but 0 bytes read,at frame 216/220, at time 7.20/7.33 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 21:30:12,165 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2025-01-15_15-41-42_UTC.mp4, 2764800 bytes wanted but 0 bytes read,at frame 217/220, at time 7.23/7.33 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 21:30:12,171 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2025-01-15_15-41-42_UTC.mp4, 2764800 bytes wanted but 0 bytes read,at frame 218/220, at time 7.27/7.33 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 21:30:12,185 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2025-01-15_15-41-42_UTC.mp4, 2764800 bytes wanted but 0 bytes read,at frame 219/220, at time 7.30/7.33 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 21:30:16,776 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\cropped_processed_video.mp4, 2448936 bytes wanted but 0 bytes read,at frame 220/221, at time 7.33/7.34 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 21:30:21,708 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\bordered_processed_video.mp4, 2563056 bytes wanted but 0 bytes read,at frame 221/222, at time 7.37/7.37 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 21:30:21,869 - INFO - Uploading file: C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\processed_video.mp4
+2025-02-10 21:30:21,869 - INFO - Attempting to login...
+2025-02-10 21:30:21,869 - INFO - https://i.instagram.com/api/v1/launcher/sync/
+2025-02-10 21:30:22,252 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/launcher/sync/ (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 21:30:22,545 - INFO - https://i.instagram.com/api/v1/accounts/login/
+2025-02-10 21:30:28,146 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/accounts/login/ (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 21:30:29,159 - INFO - https://i.instagram.com/api/v1/feed/reels_tray/
+2025-02-10 21:30:29,744 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/feed/reels_tray/ (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 21:30:30,758 - INFO - https://i.instagram.com/api/v1/feed/timeline/
+2025-02-10 21:30:33,173 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/feed/timeline/ (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 21:30:33,173 - INFO - Login successful
+2025-02-10 21:30:33,173 - INFO - Upload attempt 1/3
+2025-02-10 21:30:33,173 - INFO - Uploading file: C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\processed_video.mp4
+2025-02-10 21:30:33,173 - INFO - Attempting to upload reel: C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\processed_video.mp4
+2025-02-10 21:30:34,229 - INFO - liftlearnrepeat [200] GET https://i.instagram.com/rupload_igvideo/1739203233173_0_7456829020 (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 21:30:36,646 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/rupload_igvideo/1739203233173_0_7456829020 (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 21:30:47,804 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/rupload_igphoto/1739203233173_0_7087806404 (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 21:30:48,808 - INFO - https://i.instagram.com/api/v1/media/configure_to_clips/?video=1
+2025-02-10 21:30:55,069 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/media/configure_to_clips/?video=1 (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 21:30:56,081 - INFO - https://i.instagram.com/api/v1/qe/expose/
+2025-02-10 21:30:56,321 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/qe/expose/ (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 21:30:56,339 - INFO - Successfully uploaded reel: C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\processed_video.mp4
+2025-02-10 21:30:56,339 - INFO - Completed
+2025-02-10 21:30:58,540 - INFO - Successfully complete automation cycle
+2025-02-10 21:30:58,540 - INFO - Next run scheduled for: 2025-02-10 22:02:26.540214
+2025-02-10 22:50:49,340 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\paramiko\transport.py:219: CryptographyDeprecationWarning: Blowfish has been deprecated
+  "class": algorithms.Blowfish,
+
+2025-02-10 22:50:53,976 - INFO - Starting Instagram Reel Bot
+2025-02-10 22:50:53,978 - INFO - Starting automation cycle at 2025-02-10 22:50:53.978078
+2025-02-10 22:50:53,980 - INFO - Downloading reel
+2025-02-10 22:50:53,980 - INFO - Setting up Chrome browser...
+2025-02-10 22:50:58,664 - INFO - Browser setup completed successfully
+2025-02-10 22:50:58,680 - INFO - Attempting to login with cookies...
+2025-02-10 22:51:09,949 - INFO - Logged in using cookies
+2025-02-10 22:51:09,951 - INFO - Navigating to reels page...
+2025-02-10 22:51:24,847 - INFO - Reel URL: https://www.instagram.com/reels/DFSwFeEPQ16/
+2025-02-10 22:51:27,451 - INFO - Expected downloaded file path: C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\DFSwFeEPQ16.mp4
+2025-02-10 22:51:27,467 - INFO - Actual downloaded file path: C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2025-01-26_14-58-46_UTC.mp4
+2025-02-10 22:51:44,977 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2025-01-26_14-58-46_UTC.mp4, 2764800 bytes wanted but 0 bytes read,at frame 426/430, at time 14.20/14.33 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 22:51:45,013 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2025-01-26_14-58-46_UTC.mp4, 2764800 bytes wanted but 0 bytes read,at frame 427/430, at time 14.23/14.33 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 22:51:45,047 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2025-01-26_14-58-46_UTC.mp4, 2764800 bytes wanted but 0 bytes read,at frame 428/430, at time 14.27/14.33 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 22:51:45,068 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\downloads\2025-01-26_14-58-46_UTC.mp4, 2764800 bytes wanted but 0 bytes read,at frame 429/430, at time 14.30/14.33 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 22:51:57,899 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\cropped_processed_video.mp4, 2448936 bytes wanted but 0 bytes read,at frame 430/431, at time 14.33/14.34 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 22:52:11,812 - WARNING - C:\Users\mdgha\anaconda3\Lib\site-packages\moviepy\video\io\ffmpeg_reader.py:123: UserWarning: Warning: in file C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\bordered_processed_video.mp4, 2563056 bytes wanted but 0 bytes read,at frame 431/432, at time 14.37/14.37 sec. Using the last valid frame instead.
+  warnings.warn("Warning: in file %s, "%(self.filename)+
+
+2025-02-10 22:52:12,266 - INFO - Uploading file: C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\processed_video.mp4
+2025-02-10 22:52:12,266 - INFO - Attempting to login...
+2025-02-10 22:52:12,279 - INFO - https://i.instagram.com/api/v1/launcher/sync/
+2025-02-10 22:52:12,919 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/launcher/sync/ (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 22:52:13,317 - INFO - https://i.instagram.com/api/v1/accounts/login/
+2025-02-10 22:52:18,442 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/accounts/login/ (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 22:52:19,455 - INFO - https://i.instagram.com/api/v1/feed/reels_tray/
+2025-02-10 22:52:20,296 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/feed/reels_tray/ (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 22:52:21,302 - INFO - https://i.instagram.com/api/v1/feed/timeline/
+2025-02-10 22:52:23,776 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/feed/timeline/ (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 22:52:23,783 - INFO - Login successful
+2025-02-10 22:52:23,783 - INFO - Upload attempt 1/3
+2025-02-10 22:52:23,784 - INFO - Uploading file: C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\processed_video.mp4
+2025-02-10 22:52:23,786 - INFO - Attempting to upload reel: C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\processed_video.mp4
+2025-02-10 22:52:25,312 - INFO - liftlearnrepeat [200] GET https://i.instagram.com/rupload_igvideo/1739208143786_0_8312847252 (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 22:52:27,987 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/rupload_igvideo/1739208143786_0_8312847252 (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 22:52:39,036 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/rupload_igphoto/1739208143786_0_5768440959 (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 22:52:40,052 - INFO - https://i.instagram.com/api/v1/media/configure_to_clips/?video=1
+2025-02-10 22:52:47,121 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/media/configure_to_clips/?video=1 (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 22:52:48,126 - INFO - https://i.instagram.com/api/v1/qe/expose/
+2025-02-10 22:52:48,383 - INFO - liftlearnrepeat [200] POST https://i.instagram.com/api/v1/qe/expose/ (269.0.0.18.75, OnePlus 6T Dev)
+2025-02-10 22:52:48,429 - INFO - Successfully uploaded reel: C:\Users\mdgha\Downloads\bot\InstagramReelSync\processed_videos\processed_video.mp4
+2025-02-10 22:52:48,438 - INFO - Completed
+2025-02-10 22:52:50,916 - INFO - Successfully complete automation cycle
+2025-02-10 22:52:50,916 - INFO - Next run scheduled for: 2025-02-10 23:24:24.916165

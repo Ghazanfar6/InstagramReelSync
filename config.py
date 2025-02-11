@@ -25,11 +25,14 @@ VIDEO_PROCESSOR_DIR = os.path.join(os.path.dirname(__file__), 'video_processor')
 os.makedirs(VIDEO_PROCESSOR_DIR, exist_ok=True)
 
 # Default caption template for reposts
-DEFAULT_CAPTION = """🔥 Bringing you the best fitness content! If this belongs to you and you’d like credit or removal, please DM me. 💪📩 Stay strong, stay motivated! 🚀 #trending #viral #explorepage #reels #fyp #fitnessmotivation #gymrat #workout #fitspo #trainhard"""
+DEFAULT_CAPTION = """🔱 Collecting Gym Rats 4/9999 🔱
+🔥 Bringing you the best fitness content! If this belongs to you and you’d like credit or removal, please DM me. 📩 Stay strong, stay motivated! 🦾🚀🏆
+
+#gym #fitness #workout #bodybuilding #fitfam #gains #health #motivation #training #athlete #instafit #explorepage #reels #viral #trending #workoutmotivation #selfimprovement #winterarc #discipline #grindmode #neversettle"""
 
 # Timing configurations (in seconds)
-MIN_INTERVAL = 300  # 5 minutes
-MAX_INTERVAL = 420  # 7 minutes
+MIN_INTERVAL = 3600  # 60 minutes
+MAX_INTERVAL = 4800  # 80 minutes
 
 # Maximum retries for operations
 MAX_RETRIES = 3

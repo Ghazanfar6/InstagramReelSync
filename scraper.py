@@ -1,6 +1,7 @@
 import logging
 import os
 import time
+import pickle
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -35,9 +36,40 @@ class InstagramBot:
             logger.error(f"Browser setup failed: {str(e)}")
             return False
 
-    def login(self):
+    def login_with_cookies(self):
         try:
-            logger.info("Attempting to login...")
+            logger.info("Attempting to login with cookies...")
+            self.driver.get("https://www.instagram.com/")
+            time.sleep(3)
+
+            if os.path.exists("cookies.pkl"):
+                with open("cookies.pkl", "rb") as f:
+                    cookies = pickle.load(f)
+                    for cookie in cookies:
+                        self.driver.add_cookie(cookie)
+                self.driver.refresh()
+                time.sleep(3)
+
+                # Check if login was successful
+                if self.driver.current_url == "https://www.instagram.com/":
+                    logger.info("Logged in using cookies")
+                    return True
+                else:
+                    logger.warning("Cookies expired or invalid, falling back to username/password login")
+                    return False
+            else:
+                logger.warning("No cookies found, falling back to username/password login")
+                return False
+        except Exception as e:
+            logger.error(f"Login with cookies failed: {str(e)}")
+            return False
+
+    def login(self):
+        if self.login_with_cookies():
+            return True
+
+        try:
+            logger.info("Attempting to login with username and password...")
             self.driver.get("https://www.instagram.com/accounts/login/")
             time.sleep(3)
 
@@ -60,6 +92,11 @@ class InstagramBot:
                 EC.presence_of_element_located((By.CSS_SELECTOR, "svg[aria-label='Home']"))
             )
             logger.info("Login successful")
+
+            # Save cookies for future use
+            with open("cookies.pkl", "wb") as f:
+                pickle.dump(self.driver.get_cookies(), f)
+
             return True
         except Exception as e:
             logger.error(f"Login failed: {str(e)}")

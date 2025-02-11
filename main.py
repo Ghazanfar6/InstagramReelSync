@@ -93,7 +93,7 @@ def run_bot():
             status = "Successfully" if success else "Failed to"
             logger.info(f"{status} complete automation cycle")
 
-            # Calculate next run time (random interval within 5 to 7 minutes)
+            # Calculate next run time (random interval within 30 to 35 minutes)
             delay = random.randint(MIN_INTERVAL, MAX_INTERVAL)
             next_run = datetime.fromtimestamp(time.time() + delay)
             logger.info(f"Next run scheduled for: {next_run}")
